@@ -1,14 +1,34 @@
-<<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
-</head>
+<?php $this->load->view('shared/cabecalho'); ?>
+
 <body>
-    <h1>Rota de gerenciamento criado com sucesso</h1>
-</body>
-</html>
+    <div id="list" class="row">
+        <div class="table-responsive col-md-12">
+            <table class="table table-striped" cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome Animal</th>
+                        <th>Espécie</th>
+                        <th>Status</th>
+                        <th class="actions">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($messages as $row): ?>
+                        <tr>
+                            <td><?= $row['IDANIMAL'] ?></td>
+                            <td><?= $row['NOMEANIMAL'] ?></td>
+                            <td class="actions">
+                                <a class="btn btn-success btn-xs" href="#">Visualizar</a>
+                                <a class="btn btn-warning btn-xs" href="#">Editar</a>
+                                <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <?php $this->load->view('shared/footer') ?>
+    <?php $this->load->view('shared/rodape'); ?>
+
