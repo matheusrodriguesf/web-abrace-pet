@@ -54,13 +54,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['gerenciamento/perfil'] = 'Gerenciamento/index';
+$route['gerenciamento/salvar'] = 'Gerenciamento/create';
 
 ////// Rotas do cadastro do Pet //////
 //Adoção
+$route['pet/adocao'] = 'Pet_Adocao/index';
 $route['pet/adocao/add'] = 'Pet_Adocao/salvar';
 $route['pet/adocao/edit'] = 'Pet_Adocao/index';
 $route['pet/adocao/list/(:num)'] = 'Pet_Adocao/index';
-$route['pet/adocao/list-all'] = 'Pet_Adocao/index';
+$route['pet/adocao/list-all'] = 'Pet_Adocao/listar';
 $route['pet/adocao/delete'] = 'Pet_Adocao/index';
 
 //Lar Temporário

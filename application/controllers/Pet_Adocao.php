@@ -1,5 +1,7 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
 
 class Pet_Adocao extends CI_Controller {
 
@@ -8,11 +10,20 @@ class Pet_Adocao extends CI_Controller {
 	 */
 	public function Index()
 	{
+		// Chama a home enviando um array de dados a serem exibidos
+		$this->load->view('pet_adocao');
+	}
+
+	/**
+	 * Lista os pets
+	 */
+	public function Listar()
+	{
 		// Recupera os contatos através do model
 		$pets = $this->Model_Pet_Adocao->GetAll('nomeanimal');
 
 		
-		if ($pets) {
+		if (isset($pets)) {
 			foreach ($pets as $key => $value) {
 				$dados['pets'][$key] = $value;
 				
@@ -24,6 +35,7 @@ class Pet_Adocao extends CI_Controller {
 		// Chama a home enviando um array de dados a serem exibidos
 		$this->load->view('listar_pet_adocao', $dados);
 	}
+
 	/**
 	 * Processa o formulário para salvar os dados
 	 */
@@ -31,7 +43,7 @@ class Pet_Adocao extends CI_Controller {
 		// Recupera os contatos através do model
 		$pets = $this->Model_Pet_Adocao->GetAll('nomeanimal');
 
-		if ($pets) {
+		if (isset($pets)) {
 			foreach ($pets as $key => $value) {
 				$dados['pets'] = $value;
 			}
@@ -51,9 +63,9 @@ class Pet_Adocao extends CI_Controller {
 			$status = $this->Model_Pet_Adocao->Inserir($pets);
 			// Checa o status da operação gravando a mensagem na seção
 			if(!$status){
-				$this->session->set_flashdata('error', 'Não foi possível inserir o contato.');
+				$this->session->set_flashdata('error', 'Não foi possível adicionar o pet.');
 			}else{
-				$this->session->set_flashdata('success', 'Contato inserido com sucesso.');
+				$this->session->set_flashdata('success', 'Pet adicionado com sucesso.');
 				// Redireciona o usuário para a home
 				redirect();
 			}
@@ -63,6 +75,7 @@ class Pet_Adocao extends CI_Controller {
 		// Carrega a home
 		$this->load->view('cadastro_pet_adocao',$dados);
 	}
+
 	/**
 	 * Carrega a view para edição dos dados
 	 */
@@ -73,10 +86,11 @@ class Pet_Adocao extends CI_Controller {
 		if(is_null($id))
 			redirect();
 		// Recupera os dados do registro a ser editado
-		$dados['contato'] = $this->contatos_model->GetById($id);
+		$dados['pet'] = $this->Model_Pet_Adocao->GetById($id);
 		// Carrega a view passando os dados do registro
 		$this->load->view('editar',$dados);
 	}
+
 	/**
 	 * Processa o formulário para atualizar os dados
 	 */
@@ -88,15 +102,15 @@ class Pet_Adocao extends CI_Controller {
 		// caso contrário informa ao usuários os erros de validação
 		if($validacao){
 			// Recupera os dados do formulário
-			$contato = $this->input->post();
+			$pets = $this->input->post();
 			// Atualiza os dados no banco recuperando o status dessa operação
-			$status = $this->contatos_model->Atualizar($contato['id'],$contato);
+			$status = $this->Model_Pet_Adocao->Atualizar($pets['id'],$pets);
 			// Checa o status da operação gravando a mensagem na seção
 			if(!$status){
-				$dados['contato'] = $this->contatos_model->GetById($contato['id']);
-				$this->session->set_flashdata('error', 'Não foi possível atualizar o contato.');
+				$dados['pets'] = $this->Model_Pet_Adocao->GetById($pets['id']);
+				$this->session->set_flashdata('error', 'Não foi possível atualizar o pet.');
 			}else{
-				$this->session->set_flashdata('success', 'Contato atualizado com sucesso.');
+				$this->session->set_flashdata('success', 'Pet atualizado com sucesso.');
 				// Redireciona o usuário para a home
 				redirect();
 			}
@@ -106,6 +120,7 @@ class Pet_Adocao extends CI_Controller {
 		// Carrega a view para edição
 		$this->load->view('editar',$dados);
 	}
+
 	/**
 	 * Realiza o processo de exclusão dos dados
 	 */
@@ -116,16 +131,17 @@ class Pet_Adocao extends CI_Controller {
 		if(is_null($id))
 			redirect();
 		// Remove o registro do banco de dados recuperando o status dessa operação
-		$status = $this->contatos_model->Excluir($id);
+		$status = $this->Model_Pet_Adocao->Excluir($id);
 		// Checa o status da operação gravando a mensagem na seção
 		if($status){
-			$this->session->set_flashdata('success', '<p>Contato excluído com sucesso.</p>');
+			$this->session->set_flashdata('success', '<p>Pet excluído com sucesso.</p>');
 		}else{
-			$this->session->set_flashdata('error', '<p>Não foi possível excluir o contato.</p>');
+			$this->session->set_flashdata('error', '<p>Não foi possível excluir o pet.</p>');
 		}
 		// Redirecionao o usuário para a home
 		redirect();
 	}
+
 	/**
 	* Valida os dados do formulário
 	*

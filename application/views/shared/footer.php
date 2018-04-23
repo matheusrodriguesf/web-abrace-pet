@@ -27,7 +27,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 mt-3 text-center">
-                <p>© Copyright 2017 Abrace Pets - All rights reserved.</p>
+                <p>© Copyright 2018 Abrace Pets - All rights reserved.</p>
             </div>
         </div>
     </div>

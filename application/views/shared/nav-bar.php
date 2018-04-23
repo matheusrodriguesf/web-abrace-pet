@@ -5,7 +5,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             <a class="nav-item nav-link active" href="#">Home</a>
-            <a class="nav-item nav-link" href="#">Adoção</a>
+            <a class="nav-item nav-link" href="<?= base_url('pet/adocao')?>">Adoção</a>
             <a class="nav-item nav-link" href="#">Lar Temporário</a>
             <a class="nav-item nav-link disabled" href="#">Suporte</a>
         </div>
