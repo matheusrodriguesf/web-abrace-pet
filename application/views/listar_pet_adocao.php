@@ -28,17 +28,19 @@
 					<thead>
 						<tr>
 							<th>Nome</th>
-							<th>Idade</th>
+							<th>Sexo</th>
+							<th>Descrição</th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php if ($pets == FALSE): ?>
-							<tr><td colspan="2">Nenhum contato encontrado</td></tr>
+							<tr><td colspan="2">Nenhum pet encontrado</td></tr>
 						<?php else: ?>
 							<?php foreach ($pets as $row): ?>
 								<tr>
-									<td><?= $row['nome'] ?></td>
-									<td><?= $row['idade'] ?></td>
+									<td><?= $row['NOMEANIMAL'] ?></td>
+									<td><?= $row['SEXO'] ?></td>
+									<td><?= $row['DESCRICAO_ANIMAL'] ?></td>
 								</tr>
 							<?php endforeach; ?>
 						<?php endif; ?>
