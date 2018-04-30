@@ -26,7 +26,6 @@ class Pet_Adocao extends CI_Controller {
 		if (isset($pets)) {
 			foreach ($pets as $key => $value) {
 				$dados['pets'][$key] = $value;
-				
 			}
 		} else {
 			$dados['pets'] = FALSE;

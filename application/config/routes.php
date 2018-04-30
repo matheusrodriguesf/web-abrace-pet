@@ -56,6 +56,9 @@ $route['404_override'] = '';
 $route['gerenciamento/perfil'] = 'Gerenciamento/index';
 $route['gerenciamento/salvar'] = 'Gerenciamento/create';
 
+$route['cadastro/usuario'] = 'Cadastra_Usuario/index';
+$route['cadastro/usuario/add'] = 'Cadastra_Usuario/salvar';
+
 ////// Rotas do cadastro do Pet //////
 //Adoção
 $route['pet/adocao'] = 'Pet_Adocao/index';
