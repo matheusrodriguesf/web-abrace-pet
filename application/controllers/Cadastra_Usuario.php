@@ -20,10 +20,10 @@ class Cadastra_Usuario extends CI_Controller {
 			$dados['pets'] = FALSE;
 		}*/
 
-        $data = $this->input->post();
-        $this->Usuario_model->Insert($data);
+        $dados = $this->input->post();
+        $this->Usuario_model->Insert($dados);
 
-        $this->load->view('lista_usuario', $dados);
+        $this->load->view('cadastro_usuario', $dados);
     }
 	
 	

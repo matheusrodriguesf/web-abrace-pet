@@ -36,7 +36,8 @@ class MY_Model extends CI_Model {
     function Insert($data) {
         if(!isset($data))
             return false;
-        return $this->db->insert($this->table, $data);
+        $this->db->set($data);
+        return $this->db->insert($this->table);
     }
 
     #Funcao para atualizar um registro;
