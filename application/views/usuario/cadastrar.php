@@ -59,12 +59,12 @@
 </div>
 
 <!-- Text input-->
-<div class="form-group">
+<!--<div class="form-group">
   <label class="col-md-4 control-label" for="IDTIPO"></label>  
   <div class="col-md-4">
   <input id="IDTIPO" name="IDTIPO" type="text" placeholder="IDTIPO" class="form-control input-md">
     
-  </div>
+  </div>-->
 </div>
 <div class="form-group">
   <label class="col-md-4 control-label" for="singlebutton">Single Button</label>
