@@ -1,6 +1,6 @@
 <?php $this->load->view('shared/cabecalho'); ?>
 
-<form class="form-horizontal" method="post" action="<?= base_url('salvar') ?>">
+<form class="form-horizontal" method="post" action="<?= base_url('atualizar') ?>">
 <!-- Form Name -->
 <legend>Formulário de Cadastro do Usuário</legend>
 
@@ -8,8 +8,9 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="NOME"></label>  
   <div class="col-md-8">
-  <input id="NOME" name="NOME" type="text" placeholder="Nome Completo" class="form-control input-md">
-    
+  <input id="NOME" name="NOME" type="text" placeholder="Nome Completo" class="form-control input-md" >
+  
+
   </div>
 </div>
 
