@@ -34,7 +34,7 @@
             </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" alt="Carousel Bootstrap Second" src="https://www.animeunited.com.br/wp-content/uploads/2017/08/we-can_213n.png">
+            <img class="d-block w-100" alt="Carousel Bootstrap Second" src="http://www.layoutit.com/img/sports-q-c-1600-500-2.jpg">
             <div class="carousel-caption">
               <h4>
                 Second Thumbnail label
@@ -45,7 +45,7 @@
             </div>
           </div>
           <div class="carousel-item active">
-            <img class="d-block w-100" alt="Carousel Bootstrap Third" src="https://heroisnopapel.com/wp-content/uploads/2015/04/naruto-shippuden-1.jpg">
+            <img class="d-block w-100" alt="Carousel Bootstrap Third" src="http://www.layoutit.com/img/sports-q-c-1600-500-3.jpg">
             <div class="carousel-caption">
               <h4>
                 Third Thumbnail label
@@ -69,9 +69,6 @@
             <li>Consectetur</li>
             <li>Adipiscing Elit</li>
           </ul>
-          <button type="button" class="btn btn-success">
-				Adotar
-			</button>
         </div>
 
       </div>
@@ -82,11 +79,29 @@
 
       <div class="row">
 
-        <div class="col-md-12">
-			<p>
-				Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
-			</p>
-		</div>
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="#">
+            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+          </a>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="#">
+            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+          </a>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="#">
+            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+          </a>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="#">
+            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+          </a>
+        </div>
 
       </div>
       <!-- /.row -->
@@ -94,3 +109,5 @@
     </div>
 
 <?php $this->load->view('shared/rodape'); ?>
+
+

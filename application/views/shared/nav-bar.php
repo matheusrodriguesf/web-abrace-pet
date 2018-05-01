@@ -8,6 +8,12 @@
             <a class="nav-item nav-link" href="#">Adoção</a>
             <a class="nav-item nav-link" href="#">Lar Temporário</a>
             <a class="nav-item nav-link disabled" href="#">Suporte</a>
+            <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="text"> 
+                        <button class="btn btn-primary my-2 my-sm-0" type="submit">
+                            Pesquisar
+                        </button>
+            </form>
         </div>
     </div>
 </nav>

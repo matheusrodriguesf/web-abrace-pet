@@ -61,3 +61,4 @@ $route['usuario/add'] = 'Usuario/cadastrar_usuario';
 $route['usuario/edit/(:num)'] = 'Usuario/atualizar_usuario/$1';
 $route['salvar'] = 'Usuario/Salvar';
 $route['atualizar'] = 'Usuario/Atualizar';
+$route['teste'] = 'Usuario_teste/index';
