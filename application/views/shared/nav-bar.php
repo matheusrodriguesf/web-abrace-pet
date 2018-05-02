@@ -4,7 +4,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="#">Home</a>
+            <a class="nav-item nav-link active" href="<?php echo $this->session->userdata("usuario_logado") ? base_url('inicio') : base_url('home') ?>">Home</a>
             <a class="nav-item nav-link" href="<?= base_url('pet/adocao')?>">Adoção</a>
             <a class="nav-item nav-link" href="#">Lar Temporário</a>
             <a class="nav-item nav-link disabled" href="#">Suporte</a>

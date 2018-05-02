@@ -53,11 +53,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // $route[sua/rota] = "Controller/funcao";
 $route['default_controller'] = 'home';
 $route['404_override'] = '';
+
+$route['inicio'] = 'Home_Logged/index';
+
 $route['gerenciamento/perfil'] = 'Gerenciamento/index';
 $route['gerenciamento/salvar'] = 'Gerenciamento/create';
 
 $route['cadastro/usuario'] = 'Cadastra_Usuario/index';
 $route['cadastro/usuario/add'] = 'Cadastra_Usuario/salvar';
+
+$route['login/usuario'] = 'Login_Usuario/index';
+$route['login/usuario/logar'] = 'Login_Usuario/logar';
+$route['login/usuario/deslogar'] = 'Login_Usuario/logout';
+
 
 ////// Rotas do cadastro do Pet //////
 //Adoção

@@ -6,25 +6,6 @@
         <!-- Form Name -->
         <legend>Cadastro</legend>
 
-        <!-- Multiple Radios -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="IDTIPO">Tipo de Perfil</label>
-            <div class="col-md-4">
-                <div class="radio">
-                    <label for="IDTIPO-0">
-                        <input type="radio" name="IDTIPO" id="IDTIPO-0" value="1" checked="checked">
-                        Adoção
-                    </label>
-                </div>
-                <div class="radio">
-                    <label for="IDTIPO-1">
-                        <input type="radio" name="IDTIPO" id="IDTIPO-1" value="2">
-                        Lar Temporário
-                    </label>
-                </div>
-            </div>
-        </div>
-
         <!-- Text input-->
         <div class="form-group">
             <label class="col-md-4 control-label" for="NOME">Nome</label>  
@@ -35,17 +16,28 @@
 
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="CPF">CPF</label>  
+            <label class="col-md-4 control-label" for="CPF_CNPJ">CPF ou CNPJ</label>  
             <div class="col-md-2">
-                <input id="CPF" name="CPF" type="text" placeholder="CPF" class="form-control input-md">
+                <input id="CPF_CNPJ" name="CPF_CNPJ" type="text" placeholder="CPF ou CNPJ" class="form-control input-md">
             </div>
         </div>
 
-        <!-- Text input-->
+        <!-- Multiple Radios -->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="CNPJ">CNPJ</label>  
-            <div class="col-md-2">
-                <input id="CNPJ" name="CNPJ" type="text" placeholder="CNPJ" class="form-control input-md">
+            <label class="col-md-4 control-label" for="IND_RESPONSAVEL">Tipo de Perfil</label>
+            <div class="col-md-4">
+                <div class="radio">
+                    <label for="IND_RESPONSAVEL-0">
+                        <input type="radio" name="IND_RESPONSAVEL" id="IND_RESPONSAVEL-0" value="1" checked="checked">
+                        Pessoa Fisica
+                    </label>
+                </div>
+                <div class="radio">
+                    <label for="IND_RESPONSAVEL-1">
+                        <input type="radio" name="IND_RESPONSAVEL" id="IND_RESPONSAVEL-1" value="2">
+                        Entidade de Adoção
+                    </label>
+                </div>
             </div>
         </div>
 
@@ -95,9 +87,9 @@
 
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="LOGRADOURO">Logradouro</label>  
+            <label class="col-md-4 control-label" for="ENDERECO">Endereço</label>  
             <div class="col-md-4">
-                <input id="LOGRADOURO" name="LOGRADOURO" type="text" placeholder="LOGRADOURO" class="form-control input-md">
+                <input id="ENDERECO" name="ENDERECO" type="text" placeholder="Endereço" class="form-control input-md">
             </div>
         </div>
 

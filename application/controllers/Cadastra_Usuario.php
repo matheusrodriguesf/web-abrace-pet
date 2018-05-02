@@ -9,41 +9,24 @@ class Cadastra_Usuario extends CI_Controller {
 	}
 	
 	public function Salvar() {
-		// Recupera os contatos através do model
-		/*$pets = $this->Model_Pet_Adocao->GetAll('nomeanimal');
-
-		if (isset($pets)) {
-			foreach ($pets as $key => $value) {
-				$dados['pets'] = $value;
-			}
-		} else {
-			$dados['pets'] = FALSE;
-		}*/
-
+		
         $dados = $this->input->post();
+
+        $senha_encrypt = sha1($dados['SENHA']);
+
+        $dados['SENHA'] = $senha_encrypt;
+
+        //Muda a formatação da data
+        $dt_nascimento = $dados['DATA_NASCIMENTO'];
+
+        $dados['DATA_NASCIMENTO'] = date('Y-m-d', strtotime($dt_nascimento));
+
         $this->Usuario_model->Insert($dados);
 
         $this->load->view('cadastro_usuario', $dados);
+
+        redirect(base_url('login/usuario'));
     }
-	
-	
-	public function Listar() {
-		// Recupera os contatos através do model
-		$pets = $this->Usuario_Model->GetAll('NOME');
-
-		
-		if (isset($pets)) {
-			foreach ($pets as $key => $value) {
-				$dados['usuario'][$key] = $value;
-				
-			}
-		} else {
-			$dados['usuario'] = FALSE;
-		}
-
-		// Chama a home enviando um array de dados a serem exibidos
-		$this->load->view('lista_usuario', $dados);
-	}
 
 }
 	

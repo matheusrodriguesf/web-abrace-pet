@@ -13,8 +13,9 @@
 		<code>application/controllers/Welcome.php</code>
 
 		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
-		<a class="btn btn-primary" href="<?= base_url('login/usuario') ?>" role="button">Login</a>
-		<a class="btn btn-primary" href="<?= base_url('cadastro/usuario') ?>" role="button">Cadastrar</a>
+
+		<p><?php var_dump($this->session->userdata()); ?></p>
+		<a class="btn btn-primary" href="<?= base_url('login/usuario/deslogar') ?>" role="button">Deslogar</a>
 	</div>
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>

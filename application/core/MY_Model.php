@@ -7,6 +7,19 @@ class MY_Model extends CI_Model {
     function __construct() {
         parent::__construct();
     }
+
+    function GetUser($cpf_cnpj){
+        if(is_null($cpf_cnpj))
+            return false;
+        $this->db->where('CPF_CNPJ', $cpf_cnpj);
+        $query = $this->db->get($this->table);
+        if ($query->num_rows() > 0) {
+            return $query->row_array();
+        } else {
+            return null;
+        }
+    }
+
     # Função para obter os dados do banco,
     # apartir de um ID;
     function GetById($id) {
