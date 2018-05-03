@@ -27,6 +27,17 @@
 
 	        <!-- Select Basic -->
 	        <div class="form-group">
+	            <label class="col-md-4 control-label" for="IND_TIPO">Tipo do Pet</label>
+	            <div class="col-md-2">
+	                <select id="IND_TIPO" name="IND_TIPO" class="form-control">
+	                    <option value="c">Cachorro</option>
+	                    <option value="g">Gato</option>
+	                </select>
+	            </div>
+	        </div>
+
+	        <!-- Select Basic -->
+	        <div class="form-group">
 	            <label class="col-md-4 control-label" for="SEXO">Sexo</label>
 	            <div class="col-md-1">
 	                <select id="SEXO" name="SEXO" class="form-control">
@@ -42,13 +53,13 @@
 	            <div class="col-md-4">
 	                <div class="radio">
 	                    <label for="IND_CASTRADO-0">
-	                        <input type="radio" name="IND_CASTRADO" id="IND_CASTRADO-0" value="0" checked="checked">
+	                        <input type="radio" name="IND_CASTRADO" id="IND_CASTRADO-0" value="1" checked="checked">
 	                        Sim
 	                    </label>
 	                </div>
 	                <div class="radio">
 	                    <label for="IND_CASTRADO-1">
-	                        <input type="radio" name="IND_CASTRADO" id="IND_CASTRADO-1" value="1">
+	                        <input type="radio" name="IND_CASTRADO" id="IND_CASTRADO-1" value="0">
 	                        Não
 	                    </label>
 	                </div>
@@ -61,13 +72,13 @@
 	            <div class="col-md-4">
 	                <div class="radio">
 	                    <label for="IND_VACINA-0">
-	                        <input type="radio" name="IND_VACINA" id="IND_VACINA-0" value="0" checked="checked">
+	                        <input type="radio" name="IND_VACINA" id="IND_VACINA-0" value="1" checked="checked">
 	                        Sim
 	                    </label>
 	                </div>
 	                <div class="radio">
 	                    <label for="IND_VACINA-1">
-	                        <input type="radio" name="IND_VACINA" id="IND_VACINA-1" value="1">
+	                        <input type="radio" name="IND_VACINA" id="IND_VACINA-1" value="0">
 	                        Não
 	                    </label>
 	                </div>
@@ -77,6 +88,25 @@
 	        <div class="form-group">
 	            <div class="col-md-4">
 	                <?php include 'mapa.php'; ?>
+	            </div>
+	        </div>
+
+	        <!-- Multiple Radios -->
+	        <div class="form-group">
+	            <label class="col-md-4 control-label" for="STATUS_ANIMAL">Status do pet</label>
+	            <div class="col-md-4">
+	                <div class="radio">
+	                    <label for="STATUS_ANIMAL-0">
+	                        <input type="radio" name="STATUS_ANIMAL" id="STATUS_ANIMAL-0" value="1" checked="checked">
+	                        Status 1
+	                    </label>
+	                </div>
+	                <div class="radio">
+	                    <label for="STATUS_ANIMAL-1">
+	                        <input type="radio" name="STATUS_ANIMAL" id="STATUS_ANIMAL-1" value="0">
+	                        Status 2
+	                    </label>
+	                </div>
 	            </div>
 	        </div>
 

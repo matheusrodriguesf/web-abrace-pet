@@ -40,7 +40,6 @@
 								<tr>
 									<td><?= $row['NOMEANIMAL'] ?></td>
 									<td><?= $row['SEXO'] ?></td>
-									<td><?= $row['DESCRICAO_ANIMAL'] ?></td>
 								</tr>
 							<?php endforeach; ?>
 						<?php endif; ?>

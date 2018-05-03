@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Pet_Adocao extends CI_Controller {
+class Pet_Adocao extends MY_Controller {
 
 	/**
 	 * Carrega a home
@@ -11,7 +11,7 @@ class Pet_Adocao extends CI_Controller {
 	public function Index()
 	{
 		// Chama a home enviando um array de dados a serem exibidos
-		$this->load->view('pet_adocao');
+		$this->load->view('cadastro_pet_adocao');
 	}
 
 	/**
@@ -39,17 +39,7 @@ class Pet_Adocao extends CI_Controller {
 	 * Processa o formulário para salvar os dados
 	 */
 	public function Salvar(){
-		// Recupera os contatos através do model
-		$pets = $this->Model_Pet_Adocao->GetAll('nomeanimal');
-
-		if (isset($pets)) {
-			foreach ($pets as $key => $value) {
-				$dados['pets'] = $value;
-			}
-		} else {
-			$dados['pets'] = FALSE;
-		}
-
+		
 		// Executa o processo de validação do formulário
 		$validacao = self::Validar();
 		// Verifica o status da validação do formulário
@@ -57,22 +47,26 @@ class Pet_Adocao extends CI_Controller {
 		// caso contrário informa ao usuários os erros de validação
 		if($validacao){
 			// Recupera os dados do formulário
-			$pets = $this->input->post();
+			$dados = $this->input->post();
+			if(!isset($dados['IDRESPONSAVEL'])){
+				$dados['IDRESPONSAVEL'] = $this->session->userdata('usuario_logado')['IDRESPONSAVEL'];
+			}
+
 			// Insere os dados no banco recuperando o status dessa operação
-			$status = $this->Model_Pet_Adocao->Inserir($pets);
+			$status = $this->Model_Pet_Adocao->Insert($dados);
 			// Checa o status da operação gravando a mensagem na seção
 			if(!$status){
 				$this->session->set_flashdata('error', 'Não foi possível adicionar o pet.');
 			}else{
 				$this->session->set_flashdata('success', 'Pet adicionado com sucesso.');
 				// Redireciona o usuário para a home
-				redirect();
+				redirect(base_url('inicio'));
 			}
 		}else{
 			$this->session->set_flashdata('error', validation_errors('<p>','</p>'));
 		}
 		// Carrega a home
-		$this->load->view('cadastro_pet_adocao',$dados);
+		$this->load->view('cadastro_pet_adocao', $dados);
 	}
 
 	/**
@@ -153,44 +147,60 @@ class Pet_Adocao extends CI_Controller {
 		// determina as regras de validação
 		switch($operacao){
 			case 'insert':
-				$rules['nomeanimal'] = array('trim', 'required', 'min_length[3]');
-				$rules['sexo'] = array('trim', 'required');
-				$rules['idade'] = array('trim', 'required', 'min_length[3]');
-				$rules['raca'] = array('trim', 'required', 'min_length[3]');
-				$rules['tp_raca'] = array('trim', 'required', 'min_length[3]');
-				$rules['cor_pelagem'] = array('trim', 'required', 'min_length[3]');
-				$rules['castrado'] = array('trim', 'required', 'min_length[3]');
-				$rules['vacinado'] = array('trim', 'required', 'min_length[3]');
+				$rules['NOMEANIMAL'] = array('trim', 'required');
+				$rules['SEXO'] = array('trim', 'required');
+				$rules['IND_VACINA'] = array('trim', 'required');
+				$rules['IND_CASTRADO'] = array('trim', 'required');
+				$rules['LATITUDE'] = array('trim');
+				$rules['LOGITUDE'] = array('trim');
+				$rules['IDRESPONSAVEL'] = array('trim');
+				$rules['STATUS_ANIMAL'] = array('trim', 'required');
+				$rules['FOTO_ANIMAL'] = array('trim');
+				$rules['PORTE'] = array('trim', 'required', 'min_length[3]');
+				$rules['DESCRICAO_ANIMAL'] = array('trim', 'min_length[3]');
+				$rules['IND_TIPO'] = array('trim', 'required');
 				break;
 			case 'update':
-				$rules['nomeanimal'] = array('trim', 'required', 'min_length[3]');
-				$rules['sexo'] = array('trim', 'required');
-				$rules['idade'] = array('trim', 'required', 'min_length[3]');
-				$rules['raca'] = array('trim', 'required', 'min_length[3]');
-				$rules['tp_raca'] = array('trim', 'required', 'min_length[3]');
-				$rules['cor_pelagem'] = array('trim', 'required', 'min_length[3]');
-				$rules['castrado'] = array('trim', 'required', 'min_length[3]');
-				$rules['vacinado'] = array('trim', 'required', 'min_length[3]');
+				$rules['NOMEANIMAL'] = array('trim', 'required');
+				$rules['SEXO'] = array('trim', 'required');
+				$rules['IND_VACINA'] = array('trim', 'required');
+				$rules['IND_CASTRADO'] = array('trim', 'required');
+				$rules['LATITUDE'] = array('trim');
+				$rules['LOGITUDE'] = array('trim');
+				$rules['IDRESPONSAVEL'] = array('trim');
+				$rules['STATUS_ANIMAL'] = array('trim', 'required');
+				$rules['FOTO_ANIMAL'] = array('trim');
+				$rules['PORTE'] = array('trim', 'required', 'min_length[3]');
+				$rules['DESCRICAO_ANIMAL'] = array('trim', 'min_length[3]');
+				$rules['IND_TIPO'] = array('trim', 'required');
 				break;
 			default:
-				$rules['nomeanimal'] = array('trim', 'required', 'min_length[3]');
-				$rules['sexo'] = array('trim', 'required');
-				$rules['idade'] = array('trim', 'required', 'min_length[3]');
-				$rules['raca'] = array('trim', 'required', 'min_length[3]');
-				$rules['tp_raca'] = array('trim', 'required', 'min_length[3]');
-				$rules['cor_pelagem'] = array('trim', 'required', 'min_length[3]');
-				$rules['castrado'] = array('trim', 'required', 'min_length[3]');
-				$rules['vacinado'] = array('trim', 'required', 'min_length[3]');
+				$rules['NOMEANIMAL'] = array('trim', 'required');
+				$rules['SEXO'] = array('trim', 'required');
+				$rules['IND_VACINA'] = array('trim', 'required');
+				$rules['IND_CASTRADO'] = array('trim', 'required');
+				$rules['LATITUDE'] = array('trim');
+				$rules['LOGITUDE'] = array('trim');
+				$rules['IDRESPONSAVEL'] = array('trim');
+				$rules['STATUS_ANIMAL'] = array('trim', 'required');
+				$rules['FOTO_ANIMAL'] = array('trim');
+				$rules['PORTE'] = array('trim', 'required', 'min_length[3]');
+				$rules['DESCRICAO_ANIMAL'] = array('trim', 'min_length[3]');
+				$rules['IND_TIPO'] = array('trim', 'required');
 				break;
 		}
-		$this->form_validation->set_rules('nomeanimal', 'NomeAnimal', $rules['nomeanimal']);
-		$this->form_validation->set_rules('sexo', 'Sexo', $rules['sexo']);
-		$this->form_validation->set_rules('idade', 'Idade', $rules['idade']);
-		$this->form_validation->set_rules('raca', 'Raça', $rules['raca']);
-		$this->form_validation->set_rules('tp_raca', 'TipoRaça', $rules['tp_raca']);
-		$this->form_validation->set_rules('cor_pelagem', 'CorPelagem', $rules['cor_pelagem']);
-		$this->form_validation->set_rules('castrado', 'Castrado', $rules['castrado']);
-		$this->form_validation->set_rules('vacinado', 'Vacinado', $rules['vacinado']);
+		$this->form_validation->set_rules('NOMEANIMAL', 'NomeAnimal', $rules['NOMEANIMAL']);
+		$this->form_validation->set_rules('SEXO', 'Sexo', $rules['SEXO']);
+		$this->form_validation->set_rules('IND_VACINA', 'vacinado', $rules['IND_VACINA']);
+		$this->form_validation->set_rules('IND_CASTRADO', 'Castrado', $rules['IND_CASTRADO']);
+		$this->form_validation->set_rules('LATITUDE', 'Latitude', $rules['LATITUDE']);
+		$this->form_validation->set_rules('LOGITUDE', 'Longitude', $rules['LOGITUDE']);
+		$this->form_validation->set_rules('IDRESPONSAVEL', 'IdResponsavel', $rules['IDRESPONSAVEL']);
+		$this->form_validation->set_rules('STATUS_ANIMAL', 'StatusAnimal', $rules['STATUS_ANIMAL']);
+		$this->form_validation->set_rules('FOTO_ANIMAL', 'FotoAnimal', $rules['FOTO_ANIMAL']);
+		$this->form_validation->set_rules('PORTE', 'Porte', $rules['PORTE']);
+		$this->form_validation->set_rules('DESCRICAO_ANIMAL', 'Descricao', $rules['DESCRICAO_ANIMAL']);
+		$this->form_validation->set_rules('IND_TIPO', 'IndTipo', $rules['IND_TIPO']);
 		// Executa a validação e retorna o status
 		return $this->form_validation->run();
 	}
