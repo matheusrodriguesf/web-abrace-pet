@@ -8,6 +8,7 @@ class MY_Model extends CI_Model {
         parent::__construct();
     }
     function create($data) {
+        $this->load->database();
         return $this->db->insert($this->table, $data);
     }
     function obterPorId($id) {
