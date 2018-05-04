@@ -51,7 +51,7 @@
 
         <!-- Select Basic -->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="UF">UF</label>
+            <label class="col-md-4 control-label" for="UF">Estado</label>
             <div class="col-md-2">
                 <select id="UF" name="UF" class="form-control">
                     <option value="AC">Acre</option>
