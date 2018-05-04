@@ -77,7 +77,8 @@ $route['pet/adocao/list-all'] = 'Pet_Adocao/listar';
 $route['pet/adocao/delete'] = 'Pet_Adocao/index';
 
 //Lar Temporário
-$route['pet/lar-temporario/add'] = 'Pet_Lar_Temporario/index';
+$route['pet/lar-temporario'] = 'Pet_Lar_Temporario/index';
+$route['pet/lar-temporario/add'] = 'Pet_Lar_Temporario/salvar';
 $route['pet/lar-temporario/edit'] = 'Pet_Lar_Temporario/index';
 $route['pet/lar-temporario/list'] = 'Pet_Lar_Temporario/index';
 $route['pet/lar-temporario/delete'] = 'Pet_Lar_Temporario/index';
