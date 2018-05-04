@@ -14,7 +14,9 @@
 
 		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
 
-		<p><?php var_dump($this->session->userdata()); ?></p>
+		<!--Para retornar alguma informação do usuario é so usar $this->session->userdata('usuario_logado')['colunatable']-->
+		<!--colunatable são as colunas da tabela do RESPOSAVEL_ANIMAL-->
+		<p>Nome do Usuario: <?php echo($this->session->userdata('usuario_logado')['NOME']); ?></p>
 		<a class="btn btn-primary" href="<?= base_url('login/usuario/deslogar') ?>" role="button">Deslogar</a>
 	</div>
 
