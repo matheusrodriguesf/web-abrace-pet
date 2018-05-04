@@ -6,38 +6,36 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="NOME"></label>  
+  <label class="col-md-4 control-label" for="NOME"></label>
   <div class="col-md-8">
-  <input id="NOME" name="NOME" type="text" placeholder="Nome Completo" class="form-control input-md" >
-  
-
+  <input id="NOME" name="NOME" value="<?=$contato['NOME']?>" type="text" placeholder="Nome Completo" class="form-control input-md" >
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="CPF"></label>  
+  <label class="col-md-4 control-label" for="CPF"></label>
   <div class="col-md-5">
   <input id="CPF" name="CPF" type="text" placeholder="CPF/CNPJ" class="form-control input-md">
-    
+
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="DATA_NASCIMENTO"></label>  
+  <label class="col-md-4 control-label" for="DATA_NASCIMENTO"></label>
   <div class="col-md-4">
   <input id="DATA_NASCIMENTO" name="DATA_NASCIMENTO" type="text" placeholder="DATA DE NASCIMENTO" class="form-control input-md">
-    
+
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="LOGRADOURO"></label>  
+  <label class="col-md-4 control-label" for="LOGRADOURO"></label>
   <div class="col-md-6">
   <input id="LOGRADOURO" name="LOGRADOURO" type="text" placeholder="LOGRADOURO" class="form-control input-md">
-    
+
   </div>
 </div>
 
@@ -46,25 +44,25 @@
   <label class="col-md-4 control-label" for="SENHA"></label>
   <div class="col-md-4">
     <input id="SENHA" name="SENHA" type="password" placeholder="SENHA" class="form-control input-md">
-    
+
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="UF"></label>  
+  <label class="col-md-4 control-label" for="UF"></label>
   <div class="col-md-4">
   <input id="UF" name="UF" type="text" placeholder="UF" class="form-control input-md">
-    
+
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="IDTIPO"></label>  
+  <label class="col-md-4 control-label" for="IDTIPO"></label>
   <div class="col-md-4">
   <input id="IDTIPO" name="IDTIPO" type="text" placeholder="IDTIPO" class="form-control input-md">
-    
+
   </div>
 </div>
 <div class="form-group">

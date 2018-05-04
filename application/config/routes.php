@@ -53,11 +53,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // $route[sua/rota] = "Controller/funcao";
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
-$route['gerenciamento/perfil'] = 'Gerenciamento/index';
-$route['usuario/add'] = 'Usuario/cadastrar_usuario';
 $route['translate_uri_dashes'] = FALSE;
-$route['gerenciamento/perfil'] = 'Gerenciamento/index';
-$route['usuario/add'] = 'Usuario/cadastrar_usuario';
-$route['usuario/edit/(:num)'] = 'Usuario/atualizar_usuario/$1';
-$route['salvar'] = 'Usuario/Salvar';
-$route['atualizar'] = 'Usuario/Atualizar';
+$route['perfil_usuario'] = 'Base/Index';
+$route['editar/(:num)'] = 'Base/Editar/$1';
+$route['salvar'] = 'Base/Salvar';
+$route['atualizar'] = 'Base/Atualizar';
+$route['excluir/(:num)'] = 'Base/Excluir/$1';
+
+
+
+// $route['usuario/add'] = 'Usuario/cadastrar_usuario';
+// $route['usuario/edit/(:num)'] = 'Usuario/atualizar_usuario/$1';
+// $route['salvar'] = 'Usuario/Salvar';
+// $route['atualizar'] = 'Usuario/Atualizar';

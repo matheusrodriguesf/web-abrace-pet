@@ -20,8 +20,8 @@
                             <td><?= $row['NOMEANIMAL'] ?></td>
                             <td class="actions">
                                 <a class="btn btn-success btn-xs" href="#">Visualizar</a>
-                                <a class="btn btn-warning btn-xs" href="#">Editar</a>
-                                <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                                <a href="<?= $row['editar_url'] ?>">[Editar]</a>
+                                <a href="<?= $row['excluir_url'] ?>">[Excluir]</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -31,4 +31,3 @@
     </div>
     <?php $this->load->view('shared/footer') ?>
     <?php $this->load->view('shared/rodape'); ?>
-
