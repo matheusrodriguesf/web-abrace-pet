@@ -20,8 +20,7 @@ class Pet_Adocao extends MY_Controller {
 	public function Listar()
 	{
 		// Recupera os contatos através do model
-		$pets = $this->Model_Pet_Adocao->GetAll('nomeanimal');
-
+		$pets = $this->Model_Pet_Adocao->GetAnimalByType(1);
 		
 		if (isset($pets)) {
 			foreach ($pets as $key => $value) {
@@ -52,10 +51,17 @@ class Pet_Adocao extends MY_Controller {
 				$dados['IDRESPONSAVEL'] = $this->session->userdata('usuario_logado')['IDRESPONSAVEL'];
 			}
 
-			// Insere os dados no banco recuperando o status dessa operação
-			$status = $this->Model_Pet_Adocao->Insert($dados);
+			$status = $this->Model_Pet_Adocao->Insert($dados);			
+
+			// Adiciona o tipo de adoção no banco
+			$idanimal= $this->Model_Pet_Adocao->GetAnimal($dados['NOMEANIMAL'])['IDANIMAL'];
+
+			$dados_tipo_adocao = array("IDANIMAL"=>$idanimal,"ID_TIPOADOCAO"=>1);
+
+            $status2 = $this->Model_Tipo_Adocao->Insert($dados_tipo_adocao);
+
 			// Checa o status da operação gravando a mensagem na seção
-			if(!$status){
+			if(!$status && !$status2){
 				$this->session->set_flashdata('error', 'Não foi possível adicionar o pet.');
 			}else{
 				$this->session->set_flashdata('success', 'Pet adicionado com sucesso.');
@@ -64,6 +70,7 @@ class Pet_Adocao extends MY_Controller {
 			}
 		}else{
 			$this->session->set_flashdata('error', validation_errors('<p>','</p>'));
+			$dados = NULL;
 		}
 		// Carrega a home
 		$this->load->view('cadastro_pet_adocao', $dados);

@@ -133,7 +133,7 @@
 	        <div class="form-group">
 			    <label class="col-md-4 control-label" for="DESCRICAO_ANIMAL">Descrição do pet</label> 
 			    <div class="col-md-4">
-	                <textarea class="form-control input-md rounded-0" id="DESCRICAO_ANIMAL" type="text" placeholder="Descreva o seu pet aqui!" rows="5"></textarea>
+	                <textarea class="form-control input-md rounded-0" id="DESCRICAO_ANIMAL" name="DESCRICAO_ANIMAL" type="text" placeholder="Descreva o seu pet aqui!" rows="5"></textarea>
 	            </div>
   			</div>
 
