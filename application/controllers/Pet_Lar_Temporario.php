@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Pet_Lar_Temporario extends CI_Controller {
+class Pet_Lar_Temporario extends MY_Controller {
 
 	/**
 	 * Carrega a home
@@ -20,8 +20,7 @@ class Pet_Lar_Temporario extends CI_Controller {
 	public function Listar()
 	{
 		// Recupera os contatos através do model
-		$pets = $this->Model_Pet_Lar_Temporario->GetAll('nomeanimal');
-
+		$pets = $this->Model_Pet_Lar_Temporario->GetAnimalByType(2);
 		
 		if (isset($pets)) {
 			foreach ($pets as $key => $value) {
@@ -32,7 +31,7 @@ class Pet_Lar_Temporario extends CI_Controller {
 		}
 
 		// Chama a home enviando um array de dados a serem exibidos
-		$this->load->view('listar_pet_adocao', $dados);
+		$this->load->view('listar_pet_lar_temp', $dados);
 	}
 
 	/**
@@ -52,10 +51,23 @@ class Pet_Lar_Temporario extends CI_Controller {
 				$dados['IDRESPONSAVEL'] = $this->session->userdata('usuario_logado')['IDRESPONSAVEL'];
 			}
 
-			// Insere os dados no banco recuperando o status dessa operação
+			$dt_inicio = date('Y-m-d', strtotime($dados['DATA_INICIO']));
+			$dt_fim = date('Y-m-d', strtotime($dados['DATA_FIM']));
+
+			unset($dados["DATA_INICIO"]);
+			unset($dados["DATA_FIM"]);
+
 			$status = $this->Model_Pet_Lar_Temporario->Insert($dados);
+
+			// Adiciona o tipo de adoção no banco
+			$idanimal= $this->Model_Pet_Lar_Temporario->GetAnimal($dados['NOMEANIMAL'])['IDANIMAL'];
+
+			$dados_tipo_adocao = array("IDANIMAL"=>$idanimal,"ID_TIPOADOCAO"=>2,"DATA_INICIO"=>$dt_inicio,"DATA_FIM"=>$dt_fim);
+
+            $status2 = $this->Model_Tipo_Adocao->Insert($dados_tipo_adocao);
+
 			// Checa o status da operação gravando a mensagem na seção
-			if(!$status){
+			if(!$status && !$status2){
 				$this->session->set_flashdata('error', 'Não foi possível adicionar o pet.');
 			}else{
 				$this->session->set_flashdata('success', 'Pet adicionado com sucesso.');
@@ -64,6 +76,7 @@ class Pet_Lar_Temporario extends CI_Controller {
 			}
 		}else{
 			$this->session->set_flashdata('error', validation_errors('<p>','</p>'));
+			$dados = NULL;
 		}
 		// Carrega a home
 		$this->load->view('cadastro_pet_lar_temp', $dados);

@@ -47,6 +47,21 @@
 	            </div>
 	        </div>
 
+	        <!-- Text input-->
+	        <label class="col-md-4 control-label">Tempo do lar Temporário</label>  
+	        <div class="form-group">
+	            <label class="col-md-4 control-label" for="DATA_INICIO">Data Inicio</label>  
+	            <div class="col-md-2">
+	                <input id="DATA_INICIO" name="DATA_INICIO" type="text" placeholder="DD/MM/AAAA" class="form-control input-md">
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <label class="col-md-4 control-label" for="DATA_FIM">Data Fim</label>  
+	            <div class="col-md-2">
+	                <input id="DATA_FIM" name="DATA_FIM" type="text" placeholder="DD/MM/AAAA" class="form-control input-md">
+	            </div>
+	        </div>
+
 	        <!-- Multiple Radios -->
 	        <div class="form-group">
 	            <label class="col-md-4 control-label" for="IND_CASTRADO">Castrado ?</label>
@@ -133,7 +148,7 @@
 	        <div class="form-group">
 			    <label class="col-md-4 control-label" for="DESCRICAO_ANIMAL">Descrição do pet</label> 
 			    <div class="col-md-4">
-	                <textarea class="form-control input-md rounded-0" id="DESCRICAO_ANIMAL" type="text" placeholder="Descreva o seu pet aqui!" rows="5"></textarea>
+	                <textarea class="form-control input-md rounded-0" id="DESCRICAO_ANIMAL" name="DESCRICAO_ANIMAL" type="text" placeholder="Descreva o seu pet aqui!" rows="5"></textarea>
 	            </div>
   			</div>
 
