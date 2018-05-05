@@ -1,5 +1,12 @@
 <?php $this->load->view('shared/cabecalho'); ?>
 
+<?php if ($this->session->flashdata('error') == TRUE): ?>
+    <p><?php echo $this->session->flashdata('error'); ?></p>
+<?php endif; ?>
+<?php if ($this->session->flashdata('success') == TRUE): ?>
+    <p><?php echo $this->session->flashdata('success'); ?></p>
+<?php endif; ?>
+
 <form class="form-horizontal" method="post" action="<?= base_url('cadastro/usuario/add') ?>">
     <fieldset>
 
