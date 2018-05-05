@@ -80,8 +80,9 @@ $route['pet/adocao/delete'] = 'Pet_Adocao/index';
 $route['pet/lar-temporario'] = 'Pet_Lar_Temporario/index';
 $route['pet/lar-temporario/add'] = 'Pet_Lar_Temporario/salvar';
 $route['pet/lar-temporario/edit'] = 'Pet_Lar_Temporario/index';
-$route['pet/lar-temporario/list'] = 'Pet_Lar_Temporario/index';
+$route['pet/lar-temporario/list-all'] = 'Pet_Lar_Temporario/listar';
 $route['pet/lar-temporario/delete'] = 'Pet_Lar_Temporario/index';
 ////////////
+
 
 $route['translate_uri_dashes'] = FALSE;
