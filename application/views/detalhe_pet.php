@@ -4,9 +4,7 @@
     <div class="container">
 
       <!-- Portfolio Item Heading -->
-      <h1 class="my-4">Nome Animal
-        <small>Nome Dono</small>
-      </h1>
+      <h1 class="my-4">Nome Animal</h1>
 
       <!-- Portfolio Item Row -->
       <div class="row">
@@ -90,7 +88,6 @@
 
       </div>
       <!-- /.row -->
-
     </div>
-
-<?php $this->load->view('shared/rodape'); ?>
+              <?php $this->load->view('shared/footer') ?>
+    <?php $this->load->view('shared/rodape'); ?>
