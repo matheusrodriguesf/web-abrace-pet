@@ -96,4 +96,3 @@ $route['upload'] = 'Upload';
 $route['teste'] = 'Usuario_teste/index';
 $route['somos'] = 'Quem_somos/index';
 $route['index'] = 'Tela_inicial/index';
-$route['gerenciamento_pet'] = 'Gerenciamento_pet/index';
