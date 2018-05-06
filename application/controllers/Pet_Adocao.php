@@ -20,8 +20,9 @@ class Pet_Adocao extends MY_Controller {
 	public function Listar()
 	{
 		// Recupera os contatos através do model
-		$pets = $this->Model_Pet_Adocao->GetAnimalByType(1);
-		
+		$pets = $this->Model_Pet_Adocao->GetAll('nomeanimal');
+
+
 		if (isset($pets)) {
 			foreach ($pets as $key => $value) {
 				$dados['pets'][$key] = $value;
@@ -38,7 +39,7 @@ class Pet_Adocao extends MY_Controller {
 	 * Processa o formulário para salvar os dados
 	 */
 	public function Salvar(){
-		
+
 		// Executa o processo de validação do formulário
 		$validacao = self::Validar();
 		// Verifica o status da validação do formulário
@@ -50,79 +51,72 @@ class Pet_Adocao extends MY_Controller {
 			if(!isset($dados['IDRESPONSAVEL'])){
 				$dados['IDRESPONSAVEL'] = $this->session->userdata('usuario_logado')['IDRESPONSAVEL'];
 			}
-			$this->do_upload($this->db->insert_id());
 
-			$status = $this->Model_Pet_Adocao->Insert($dados);			
-
-			// Adiciona o tipo de adoção no banco
-			$idanimal= $this->Model_Pet_Adocao->GetAnimal($dados['NOMEANIMAL'])['IDANIMAL'];
-
-			$dados_tipo_adocao = array("IDANIMAL"=>$idanimal,"ID_TIPOADOCAO"=>1);
-
-            $status2 = $this->Model_Tipo_Adocao->Insert($dados_tipo_adocao);
-
+			// Insere os dados no banco recuperando o status dessa operação
+			$status = $this->Model_Pet_Adocao->Insert($dados);
 			// Checa o status da operação gravando a mensagem na seção
-			if(!$status && !$status2){
+			if(!$status){
 				$this->session->set_flashdata('error', 'Não foi possível adicionar o pet.');
 			}else{
 				$this->session->set_flashdata('success', 'Pet adicionado com sucesso.');
-				
+				$this->do_upload($this->db->insert_id());
 				// Redireciona o usuário para a home
 				redirect(base_url('inicio'));
 			}
 		}else{
 			$this->session->set_flashdata('error', validation_errors('<p>','</p>'));
-			$dados = NULL;
 		}
 		// Carrega a home
 		$this->load->view('cadastro_pet_adocao', $dados);
 	}
 
-	public function do_upload($id_animal) { 
-		$config['upload_path']   = './uploads/'; 
-		$config['allowed_types'] = 'gif|jpg|png'; 
-		$config['max_size']      = 100; 
-		$config['max_width']     = 1024; 
-		$config['max_height']    = 768;  
+	public function do_upload($id_animal) {
+		$config['upload_path']   = './uploads/';
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['max_size']      = 100;
+		$config['max_width']     = 1024;
+		$config['max_height']    = 768;
 		$this->load->library('upload', $config);
-		   
+
 		if ( ! $this->upload->do_upload('userfile')) {
-		   $error = array('error' => $this->upload->display_errors()); 
-		   $this->load->view('upload_form', $error); 
+      $this->Excluir_Erro($id_animal);
+		   $error = array('error' => $this->upload->display_errors());
+		   $this->load->view('upload_form', $error);
+
 		}
-		   
-		else { 
-		   $data = array('upload_data' => $this->upload->data()); 
+
+		else {
+		   $data = array('upload_data' => $this->upload->data());
 		   $image_data = array(
 			   'IDANIMAL' => $id_animal,
 			   'IMAGEM_ANIMAL' => $data['upload_data']['file_name'],
 		   );
-		   
+
 		   $this->load->model('Imagem_animal');
            $this->Imagem_animal->Insert($image_data);
-		   // $this->load->view('upload_success', $data); 
-		} 
+		   // $this->load->view('upload_success', $data);
+		}
 	 }
 
-	 public function update_imagem($id_animal) { 
-		$config['upload_path']   = './uploads/'; 
-		$config['allowed_types'] = 'gif|jpg|png'; 
-		$config['max_size']      = 100; 
-		$config['max_width']     = 1024; 
-		$config['max_height']    = 768;  
+	 public function update_imagem($id_animal) {
+		$config['upload_path']   = './uploads/';
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['max_size']      = 100;
+		$config['max_width']     = 1024;
+		$config['max_height']    = 768;
 		$this->load->library('upload', $config);
-		   
-		if ( $this->upload->do_upload('userfile')) { 
-		   $data = array('upload_data' => $this->upload->data()); 
+
+		if ( $this->upload->do_upload('userfile')) {
+		   $data = array('upload_data' => $this->upload->data());
 		   $image_data = array(
 			   'IDANIMAL' => $id_animal,
 			   'IMAGEM_ANIMAL' => $data['upload_data']['file_name'],
 		   );
-		   
+
 		   $this->load->model('Imagem_animal');
            $this->Imagem_animal->Update($id_animal, $image_data);
-		   // $this->load->view('upload_success', $data); 
-		} 
+		   // $this->load->view('upload_success', $data);
+		}
 	 }
 
 	/**
@@ -154,7 +148,7 @@ class Pet_Adocao extends MY_Controller {
 			$pets = $this->input->post();
 			// Atualiza os dados no banco recuperando o status dessa operação
 			$status = $this->Model_Pet_Adocao->Update($id, $pets);
-			
+
 			// Checa o status da operação gravando a mensagem na seção
 			if(!$status){
 				$dados['pets'] = $this->Model_Pet_Adocao->GetById($pets['id']);
@@ -184,11 +178,11 @@ class Pet_Adocao extends MY_Controller {
 				redirect();
 			// Remove o registro do banco de dados recuperando o status dessa operação
 			$status = $this->Model_Pet_Adocao->Delete($id);
-			
+
 			//apagando imagem do registro
 			$this->load->model('Imagem_animal');
 			$this->Imagem_animal->Delete($id);
-			
+
 			// Checa o status da operação gravando a mensagem na seção
 			if($status){
 				$this->session->set_flashdata('success', '<p>Pet excluído com sucesso.</p>');
@@ -197,6 +191,29 @@ class Pet_Adocao extends MY_Controller {
 			}
 			// Redirecionao o usuário para a home
 			redirect();
+		}
+	}
+
+  public function Excluir_Erro($id){
+		if ($this->Model_Pet_Adocao->ChecaUsuarioAnimal($id)) {
+			// Recupera o ID do registro - através da URL - a ser editado
+
+			// Se não foi passado um ID, então redireciona para a home
+			if(is_null($id))
+				redirect();
+			// Remove o registro do banco de dados recuperando o status dessa operação
+			$status = $this->Model_Pet_Adocao->Delete($id);
+
+			//apagando imagem do registro
+			$this->load->model('Imagem_animal');
+			$this->Imagem_animal->Delete($id);
+
+			// Checa o status da operação gravando a mensagem na seção
+			if($status){
+				$this->session->set_flashdata('success', '<p>Pet excluído com sucesso.</p>');
+			}else{
+				$this->session->set_flashdata('error', '<p>Não foi possível excluir o pet.</p>');
+			}
 		}
 	}
 
