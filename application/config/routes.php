@@ -97,7 +97,11 @@ $route['teste'] = 'Usuario_teste/index';
 $route['somos'] = 'Quem_somos/index';
 <<<<<<< HEAD
 $route['index'] = 'Tela_inicial/index';
+<<<<<<< HEAD
 =======
 $route['index'] = 'Tela_inicial/index';
+$route['gerenciamento_pet'] = 'Gerenciamento_pet/index';
+>>>>>>> parent of 4d38343... Merge remote-tracking branch 'origin/devel' into felipe
+=======
 $route['gerenciamento_pet'] = 'Gerenciamento_pet/index';
 >>>>>>> parent of 4d38343... Merge remote-tracking branch 'origin/devel' into felipe
