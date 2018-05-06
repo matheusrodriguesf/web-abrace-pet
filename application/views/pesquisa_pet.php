@@ -1,7 +1,7 @@
 <?php $this->load->view('shared/cabecalho'); ?>
 <div class="container">
 	<!-- Modal -->
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="pesquisaPet" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 	    	<div class="modal-content">
 	      		<div class="modal-header">
@@ -196,7 +196,7 @@
 	      </div>
 	      <div class="modal-footer">
 	        <button id="button1id" name="button1id" class="btn btn-success">Filtrar</button>
-				    <button id="button2id" name="button2id" class="btn btn-danger">Limpar</button>
+				<button id="button2id" name="button2id" class="btn btn-danger">Limpar</button>
 	      </div>
 	    </div>
 	  </div>
@@ -207,7 +207,7 @@
 
 		<!-- Page Heading -->
       <h1 class="my-4">Pesquisa Realizada
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pesquisaPet">
   			Filtrar
 		</button>
       </h1>
