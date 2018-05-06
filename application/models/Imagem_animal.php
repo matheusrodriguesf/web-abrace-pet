@@ -7,7 +7,7 @@ class Imagem_animal extends MY_Model {
   
     function __construct() {
         parent:: __construct();
-        $this->table = 'imagem_animal';
+        $this->table = 'IMAGEM_ANIMAL';
     }
 
     # Função para obter os dados do banco,
@@ -15,7 +15,7 @@ class Imagem_animal extends MY_Model {
     function GetById($id) {
         if(is_null($id))
             return false;
-        $this->db->where('idanimal', $id);
+        $this->db->where('IDANIMAL', $id);
         $query = $this->db->get($this->table);
         if ($query->num_rows() > 0) {
             return $query->row_array();
@@ -25,7 +25,7 @@ class Imagem_animal extends MY_Model {
     }
 
     # Funcao para obter todos os registro de uma data tabela
-    function GetAll($sort = 'idanimal', $order = 'asc') {
+    function GetAll($sort = 'IDANIMAL', $order = 'asc') {
         $this->db->order_by($sort, $order);
         $query = $this->db->get($this->table);
         if ($query->num_rows() > 0) {
@@ -40,7 +40,7 @@ class Imagem_animal extends MY_Model {
         if (is_null($id) || !isset($data))
             return false;
 
-        $this->db->where('idanimal', $id);
+        $this->db->where('IDANIMAL', $id);
         return $this->db->update($this->table, $data);
     }
 
@@ -48,7 +48,7 @@ class Imagem_animal extends MY_Model {
 	function Delete($id) {
         if (is_null($id))
             return false;
-        $this->db->where('idanimal', $id);
+        $this->db->where('IDANIMAL', $id);
         return $this->db->delete($this->table);
     }
 }

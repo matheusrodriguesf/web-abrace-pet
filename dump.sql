@@ -77,6 +77,34 @@ LOCK TABLES `ANIMAL_TIPO_ADOCAO` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `CONTATO`
+--
+
+DROP TABLE IF EXISTS `CONTATO`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `CONTATO` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `FONE_RESIDENCIAL` varchar(45) DEFAULT NULL,
+  `FONE_CELULAR` varchar(45) NOT NULL,
+  `FONE_COMERCIAL` varchar(45) DEFAULT NULL,
+  `EMAIL` varchar(45) DEFAULT NULL,
+  `IDRESPONSAVEL` int(11) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `fk_CONTATO_RESPONSAVEL_ANIMAL1_idx` (`IDRESPONSAVEL`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `CONTATO`
+--
+
+LOCK TABLES `CONTATO` WRITE;
+/*!40000 ALTER TABLE `CONTATO` DISABLE KEYS */;
+/*!40000 ALTER TABLE `CONTATO` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `GEOLOCALIZACAO_PESQUISA`
 --
 
@@ -187,4 +215,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-05 13:27:46
+-- Dump completed on 2018-05-06 16:00:49

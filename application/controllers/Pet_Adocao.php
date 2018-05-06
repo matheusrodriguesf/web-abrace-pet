@@ -157,7 +157,7 @@ class Pet_Adocao extends MY_Controller {
 				$this->session->set_flashdata('success', 'Pet atualizado com sucesso.');
 				$this->update_imagem($id);
 				// Redireciona o usuário para a home
-				redirect();
+				redirect(base_url('inicio'));
 			}
 		}else{
 			$this->session->set_flashdata('error', validation_errors());
@@ -190,7 +190,7 @@ class Pet_Adocao extends MY_Controller {
 				$this->session->set_flashdata('error', '<p>Não foi possível excluir o pet.</p>');
 			}
 			// Redirecionao o usuário para a home
-			redirect();
+			redirect(base_url('inicio'));
 		}
 	}
 

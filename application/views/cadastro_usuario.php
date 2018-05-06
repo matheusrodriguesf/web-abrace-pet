@@ -29,6 +29,37 @@
             </div>
         </div>
 
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="FONE_CELULAR">Telefone Celular</label>  
+            <div class="col-md-3">
+                <input id="FONE_CELULAR" name="FONE_CELULAR" type="text" placeholder="" class="form-control input-md">
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="FONE_RESIDENCIAL">Telefone Residencial</label>  
+            <div class="col-md-3">
+                <input id="FONE_RESIDENCIAL" name="FONE_RESIDENCIAL" type="text" placeholder="" class="form-control input-md">
+            </div>
+        </div>
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="FONE_COMERCIAL">Telefone Comercial</label>  
+            <div class="col-md-3">
+                <input id="FONE_COMERCIAL" name="FONE_COMERCIAL" type="text" placeholder="" class="form-control input-md">
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="EMAIL">Email</label>  
+            <div class="col-md-3">
+                <input id="EMAIL" name="EMAIL" type="text" placeholder="" class="form-control input-md">
+            </div>
+        </div>
+
         <!-- Multiple Radios -->
         <div class="form-group">
             <label class="col-md-4 control-label" for="IND_RESPONSAVEL">Tipo de Perfil</label>
