@@ -1,5 +1,12 @@
 <?php $this->load->view('shared/cabecalho'); ?>
 
+<?php if ($this->session->flashdata('error') == TRUE): ?>
+    <p><?php echo $this->session->flashdata('error'); ?></p>
+<?php endif; ?>
+<?php if ($this->session->flashdata('success') == TRUE): ?>
+    <p><?php echo $this->session->flashdata('success'); ?></p>
+<?php endif; ?>
+
 <form class="form-horizontal" method="post" action="<?= base_url('cadastro/usuario/add') ?>">
     <fieldset>
 
@@ -51,7 +58,7 @@
 
         <!-- Select Basic -->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="UF">UF</label>
+            <label class="col-md-4 control-label" for="UF">Estado</label>
             <div class="col-md-2">
                 <select id="UF" name="UF" class="form-control">
                     <option value="AC">Acre</option>

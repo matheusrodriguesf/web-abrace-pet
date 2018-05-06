@@ -2,7 +2,7 @@
 
 <div>
 	<div>
-		<h1>Abrace Pets - Adoção</h1>
+		<h1>Abrace Pets - Lar Temporario</h1>
 	</div>
 
 	<?php if ($this->session->flashdata('error') == TRUE): ?>

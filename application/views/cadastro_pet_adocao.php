@@ -86,6 +86,7 @@
 	        </div>
 
 	        <div class="form-group">
+	        	<label class="col-md-4 control-label">Localização</label>
 	            <div class="col-md-4">
 	                <?php include 'mapa.php'; ?>
 	            </div>

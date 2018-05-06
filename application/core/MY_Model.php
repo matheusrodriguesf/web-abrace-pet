@@ -20,6 +20,34 @@ class MY_Model extends CI_Model {
         }
     }
 
+    function GetAnimal($nomeanimal){
+        if(is_null($nomeanimal))
+            return false;
+        $this->db->where('NOMEANIMAL', $nomeanimal);
+        $query = $this->db->get($this->table);
+        if ($query->num_rows() > 0) {
+            return $query->row_array();
+        } else {
+            return null;
+        }
+    }
+
+    function GetAnimalByType($animaltype){
+        if(is_null($animaltype))
+            return false;
+        $this->db
+            ->select("*")
+            ->from("ANIMAL_TIPO_ADOCAO")
+            ->join("ANIMAL", "ANIMAL.IDANIMAL = ANIMAL_TIPO_ADOCAO.IDANIMAL")
+            ->like('ANIMAL_TIPO_ADOCAO.ID_TIPOADOCAO',$animaltype); 
+        return $query = $this->db->get()->result();
+        /*if ($query->num_rows() > 0) {
+            return $query->row_array();
+        } else {
+            return null;
+        }*/
+    }
+
     # Função para obter os dados do banco,
     # apartir de um ID;
     function GetById($id) {
