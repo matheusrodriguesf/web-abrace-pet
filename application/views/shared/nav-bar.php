@@ -5,8 +5,11 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             <a class="nav-item nav-link active" href="<?php echo $this->session->userdata("usuario_logado") ? base_url('inicio') : base_url('home') ?>">Home</a>
-            <a class="nav-item nav-link" href="<?= base_url('pet/adocao')?>">Adoção</a>
-            <a class="nav-item nav-link" href="#">Lar Temporário</a>
+            <?php if($this->session->userdata("usuario_logado")) { ?>
+                <a class="nav-item nav-link" href="<?= base_url('pet/adocao')?>">Cadastrar Animal</a>
+            <?php } ?>
+            <a class="nav-item nav-link" href="<?= base_url('pet/animais')?>">Animais</a>
+            <!--<a class="nav-item nav-link" href="#">Lar Temporário</a>-->
             <a class="nav-item nav-link disabled" href="#">Suporte</a>
         </div>
     </div>

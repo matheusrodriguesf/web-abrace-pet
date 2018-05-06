@@ -3,17 +3,11 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-class Animais_model extends MY_Model {
-
+class Imagem_animal extends MY_Model {
+  
     function __construct() {
         parent:: __construct();
-        $this->table = 'ANIMAL';
+        $this->table = 'imagem_animal';
     }
 
     # Função para obter os dados do banco,
@@ -42,32 +36,19 @@ class Animais_model extends MY_Model {
     }
 
     #Funcao para atualizar um registro;
-    function Update($id, $data) {
+    function Update($id, $data) { 
         if (is_null($id) || !isset($data))
             return false;
+
         $this->db->where('idanimal', $id);
         return $this->db->update($this->table, $data);
     }
 
-     # Funcao para remover um registro
-     function Delete($id) {
+    # Funcao para remover um registro
+	function Delete($id) {
         if (is_null($id))
             return false;
         $this->db->where('idanimal', $id);
         return $this->db->delete($this->table);
-    }
-
-    function ChecaUsuarioAnimal($id) {
-        $usuario = $this->session->userdata("usuario_logado");
-        if(is_null($id))
-            return false;
-        $this->db->where('idanimal', $id);
-        $this->db->where("IDRESPONSAVEL", $usuario['IDRESPONSAVEL']);
-        $query = $this->db->get($this->table);
-        if ($query->num_rows() > 0) {
-            return true;
-        } else {
-            return false;
-        }
     }
 }

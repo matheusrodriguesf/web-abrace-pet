@@ -69,4 +69,12 @@ class MY_Model extends CI_Model {
         return $this->db->delete($this->table);
     }
 
+    # Funcao para remover um registro
+    function Atualizar($id) {
+        if (is_null($id))
+            return false;
+        $this->db->where('id', $id);
+        return $this->db->update($this->table);
+    }
+
 }

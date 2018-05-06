@@ -20,6 +20,8 @@
   </head>
   <body>
     <div id="map"></div>
+    <input type="hidden" class="form-control input-md" id="LONGITUDE" name="LONGITUDE"/>
+    <input type="hidden" class="form-control input-md" id="LATITUDE" name="LATITUDE"/>
     <script>
     /*Inicializa o mapa passando os valores de entrada*/
 
@@ -43,8 +45,9 @@
             infoWindow.setContent('Localização encontrada.' + position.coords.latitude + position.coords.longitude);
             map.setCenter(pos);
 			
-				
-			
+            document.querySelector('#LONGITUDE').value = position.coords.longitude;
+            document.querySelector('#LATITUDE').value = position.coords.latitude;
+            
           },   
 		  
 		  

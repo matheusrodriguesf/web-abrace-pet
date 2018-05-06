@@ -74,7 +74,12 @@ $route['pet/adocao/add'] = 'Pet_Adocao/salvar';
 $route['pet/adocao/edit'] = 'Pet_Adocao/index';
 $route['pet/adocao/list/(:num)'] = 'Pet_Adocao/index';
 $route['pet/adocao/list-all'] = 'Pet_Adocao/listar';
-$route['pet/adocao/delete'] = 'Pet_Adocao/index';
+$route['pet/adocao/delete/(:any)'] = 'Pet_Adocao/Excluir/$1';
+$route['pet/adocao/atualizar/(:any)'] = 'Pet_Adocao/Atualizar/$1';
+
+$route['pet/detalhe/(:any)'] = 'Detalhe_Animal/index/$1';
+$route['pet/atualizar/(:any)'] = 'Atualiza_Animal/index/$1';
+$route['pet/animais'] = 'Animais/index';
 
 //Lar Temporário
 $route['pet/lar-temporario/add'] = 'Pet_Lar_Temporario/index';
@@ -84,3 +89,5 @@ $route['pet/lar-temporario/delete'] = 'Pet_Lar_Temporario/index';
 ////////////
 
 $route['translate_uri_dashes'] = FALSE;
+
+$route['upload'] = 'Upload';

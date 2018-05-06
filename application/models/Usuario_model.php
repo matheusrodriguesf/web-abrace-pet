@@ -9,4 +9,18 @@ class Usuario_model extends MY_Model {
         parent:: __construct();
         $this->table = 'RESPONSAVEL_ANIMAL';
     }
+
+    function ChecaUsuarioAnimal($id) {
+        $usuario = $this->session->userdata("usuario_logado");
+        if(is_null($id))
+            return false;
+        $this->db->where('idanimal', $id);
+        $this->db->where("IDRESPONSAVEL", $usuario['IDRESPONSAVEL']);
+        $query = $this->db->get('animal');
+        if ($query->num_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
