@@ -53,12 +53,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // $route[sua/rota] = "Controller/funcao";
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
+
+$route['inicio'] = 'Home_Logged/index';
+
 $route['gerenciamento/perfil'] = 'Gerenciamento/index';
-$route['usuario/add'] = 'Usuario/cadastrar_usuario';
+$route['gerenciamento/salvar'] = 'Gerenciamento/create';
+
+$route['cadastro/usuario'] = 'Cadastra_Usuario/index';
+$route['cadastro/usuario/add'] = 'Cadastra_Usuario/salvar';
+
+$route['login/usuario'] = 'Login_Usuario/index';
+$route['login/usuario/logar'] = 'Login_Usuario/logar';
+$route['login/usuario/deslogar'] = 'Login_Usuario/logout';
+
+$route['pet/detalhe/(:any)'] = 'Detalhe_Animal/index/$1';
+$route['pet/atualizar/(:any)'] = 'Atualiza_Animal/index/$1';
+$route['pet/animais'] = 'Animais/index';
+
+////// Rotas do cadastro do Pet //////
+//Adoção
+$route['pet/adocao'] = 'Pet_Adocao/index';
+$route['pet/adocao/add'] = 'Pet_Adocao/salvar';
+$route['pet/adocao/edit'] = 'Pet_Adocao/index';
+$route['pet/adocao/list/(:num)'] = 'Pet_Adocao/index';
+$route['pet/adocao/list-all'] = 'Pet_Adocao/listar';
+$route['pet/adocao/delete/(:any)'] = 'Pet_Adocao/Excluir/$1';
+$route['pet/adocao/atualizar/(:any)'] = 'Pet_Adocao/Atualizar/$1';
+$route['pet/detalhe/(:any)'] = 'Detalhe_Animal/index/$1';
+$route['pet/atualizar/(:any)'] = 'Atualiza_Animal/index/$1';
+$route['pet/animais'] = 'Animais/index';
+//Lar Temporário
+$route['pet/lar-temporario'] = 'Pet_Lar_Temporario/index';
+$route['pet/lar-temporario/add'] = 'Pet_Lar_Temporario/salvar';
+$route['pet/lar-temporario/edit'] = 'Pet_Lar_Temporario/index';
+$route['pet/lar-temporario/list-all'] = 'Pet_Lar_Temporario/listar';
+$route['pet/lar-temporario/delete'] = 'Pet_Lar_Temporario/index';
+////////////
+
 $route['translate_uri_dashes'] = FALSE;
-$route['gerenciamento/perfil'] = 'Gerenciamento/index';
-$route['usuario/add'] = 'Usuario/cadastrar_usuario';
-$route['usuario/edit/(:num)'] = 'Usuario/atualizar_usuario/$1';
-$route['salvar'] = 'Usuario/Salvar';
-$route['atualizar'] = 'Usuario/Atualizar';
+$route['upload'] = 'Upload';
+
 $route['teste'] = 'Usuario_teste/index';
+$route['somos'] = 'Quem_somos/index';
+$route['index'] = 'Tela_inicial/index';

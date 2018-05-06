@@ -89,5 +89,5 @@
       </div>
       <!-- /.row -->
     </div>
-              <?php $this->load->view('shared/footer') ?>
-    <?php $this->load->view('shared/rodape'); ?>
+<?php $this->load->view('shared/footer') ?>
+<?php $this->load->view('shared/rodape'); ?>

@@ -206,8 +206,7 @@
 	<div class="col-xl-12">
 
 		<!-- Page Heading -->
-      <h1 class="my-4">Page Heading
-        <small>Secondary Text</small>
+      <h1 class="my-4">Pesquisa Realizada
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   			Filtrar
 		</button>
@@ -216,7 +215,7 @@
       <div class="row">
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <a href="#"><img class="card-img-top" src="https://i.kinja-img.com/gawker-media/image/upload/s--nFxGt3L5--/c_scale,f_auto,fl_progressive,q_80,w_800/ebaeet1udzknntbtepj6.jpg" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
                 <a href="#">Project One</a>
