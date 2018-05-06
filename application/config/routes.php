@@ -108,6 +108,7 @@ $route['upload'] = 'Upload';
 $route['teste'] = 'Usuario_teste/index';
 $route['somos'] = 'Quem_somos/index';
 <<<<<<< HEAD
+<<<<<<< HEAD
 $route['index'] = 'Tela_inicial/index';
 $route['gerenciamento_pet'] = 'Gerenciamento_pet/index';
 =======
@@ -116,6 +117,9 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['upload'] = 'Upload';
 >>>>>>> origin/devel
+=======
+$route['index'] = 'Tela_inicial/index';
+>>>>>>> parent of f110393... Gerenciamento
 =======
 $route['index'] = 'Tela_inicial/index';
 >>>>>>> parent of f110393... Gerenciamento
