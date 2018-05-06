@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Usuario_teste extends CI_Controller {
+class Gerenciamento_pet extends CI_Controller {
 
     /**
      * Carrega a home
@@ -10,7 +10,7 @@ class Usuario_teste extends CI_Controller {
     public function Index()
     {
         // Chama a home enviando um array de dados a serem exibidos
-        $this->load->view('teste');
+        $this->load->view('gerenciamento_pet');
     }
     /**
      * Lista os pets
