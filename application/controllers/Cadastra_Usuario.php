@@ -1,34 +1,69 @@
 <?php
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
+
 class Cadastra_Usuario extends CI_Controller {
-    public function index(){
-        $this->load->view('cadastro_usuario');
-    }
-    
-    public function Salvar() {
+
+	public function index(){
+		$this->load->view('cadastro_usuario');
+	}
+	
+	public function Salvar() {
+
         $validacao = self::Validar();
-        if($validacao){
+
+		if($validacao){
             $dados = $this->input->post();
+
             $senha_encrypt = sha1($dados['SENHA']);
+
             $dados['SENHA'] = $senha_encrypt;
+
             //Muda a formatação da data
             $dt_nascimento = $dados['DATA_NASCIMENTO'];
+
             $dados['DATA_NASCIMENTO'] = date('Y-m-d', strtotime($dt_nascimento));
+
+            $fone_celular = $dados["FONE_CELULAR"];
+            $fone_residencial = $dados["FONE_RESIDENCIAL"];
+            $fone_comercial = $dados["FONE_COMERCIAL"];
+            $email = $dados["EMAIL"];
+
+            unset($dados["FONE_CELULAR"]);
+            unset($dados["FONE_RESIDENCIAL"]);
+            unset($dados["FONE_COMERCIAL"]);
+            unset($dados["EMAIL"]);
             
             $status = $this->Usuario_model->Insert($dados);
-            if(!$status){
+
+            $iduser = $this->Usuario_model->GetUser($dados['CPF_CNPJ'])['IDRESPONSAVEL'];
+
+            $dados_contato = array(
+                "IDRESPONSAVEL"=>$iduser,
+                "FONE_CELULAR"=>$fone_celular,
+                "FONE_RESIDENCIAL"=>$fone_residencial,
+                "FONE_COMERCIAL"=>$fone_comercial,
+                "EMAIL"=>$email
+            );
+
+            $status2 = $this->Model_Contato_Usuario->Insert($dados_contato);
+
+            if(!$status && !status2){
                 $this->session->set_flashdata('error', 'Não foi possível cadastrar o usuario');
             }else{
                 $this->session->set_flashdata('success', 'Usuario cadastrado com sucesso.');
                 redirect(base_url('login/usuario'));
             }
+
         }else{            
             $this->session->set_flashdata('error', validation_errors('<p>','</p>'));
             $dados=NULL;
         }
+
+
         $this->load->view('cadastro_usuario', $dados);
     }
+
     /**
     * Valida os dados do formulário
     *

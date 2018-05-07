@@ -13,14 +13,14 @@
         <!--Primeiro Slide -->
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="first-slide d-block h-100" src="https://i.kinja-img.com/gawker-media/image/upload/s--nFxGt3L5--/c_scale,f_auto,fl_progressive,q_80,w_800/ebaeet1udzknntbtepj6.jpg" alt="First slide">
-            <div class="container">
+            <img class="first-slide d-block w-100" src="https://i.kinja-img.com/gawker-media/image/upload/s--nFxGt3L5--/c_scale,f_auto,fl_progressive,q_80,w_800/ebaeet1udzknntbtepj6.jpg" alt="First slide">
+            
               <div class="carousel-caption text-left">
                 <h1>Example headline.</h1>
                 <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                 <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
               </div>
-            </div>
+            
           </div>
           <!--Fim primeiro Slide -->
           <!--Segundo Slide -->
