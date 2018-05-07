@@ -27,11 +27,11 @@
 
           <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-              <?php include '/../login_usuario.php'; ?>               
+              <?php $this->load->view('login_usuario'); ?>               
             </div>
 
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-              <?php include '/../cadastro_usuario.php'; ?>
+              <?php $this->load->view('cadastro_usuario'); ?>
             </div>
           </div>  
         </div>
@@ -77,9 +77,7 @@
       </li>
       <li class="nav-item">
         <?php if($this->session->userdata("usuario_logado")) { ?>
-          <button type="button" class="btn btn-danger" href="<?= base_url('login/usuario/deslogar') ?>">
-            Sair
-          </button>
+          <a class="btn btn-danger" href="<?= base_url('login/usuario/deslogar') ?>" role="button">Sair</a>
         <?php } ?>
       </li>
     </ul>
