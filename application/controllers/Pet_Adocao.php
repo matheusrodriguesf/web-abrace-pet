@@ -11,7 +11,7 @@ class Pet_Adocao extends MY_Controller {
 	public function Index()
 	{
 		// Chama a home enviando um array de dados a serem exibidos
-		$this->load->view('cadastro_pet_adocao');
+		$this->load->view('gerenciamento_pet');
 	}
 	/**
 	 * Lista os pets

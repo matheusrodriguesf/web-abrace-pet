@@ -11,7 +11,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <?php include 'cadastro_pet_adocao.php'; ?>
+          <?php $this->load->view('cadastro_pet_adocao'); ?>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -31,7 +31,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <?php include 'atualizar_pet_adocao.php'; ?>
+          <?php $this->load->view('atualizar_pet_adocao'); ?>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -42,17 +42,15 @@
 
   <div class="row">
     <div class="col-md-12">
-      <h3>
-        Pets
-      </h3>
-      </br></br>
+      <h3>Pets</h3>
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#adicionarPet">
         Adicionar Pet
       </button>
-      </br></br>
-      <?php include 'listar_pet_adocao.php'; ?>
+      </br>
+      <?php $this->load->view('listar_pet_adocao'); ?>
     </div>
   </div>
+
 </div>
 <?php $this->load->view('shared/rodape'); ?>
 <?php $this->load->view('shared/footer') ?>

@@ -95,5 +95,7 @@ $route['teste'] = 'Usuario_teste/index';
 $route['somos'] = 'Quem_somos/index';
 
 $route['principal'] = 'Tela_inicial/index';
-$route['gerenciamento_pet'] = 'Gerenciamento_pet/index';
+$route['gerenciamento_pet'] = 'Pet_Adocao/index';
+$route['detalhe_pet'] = 'Detalhe_pet/index';
+$route['pesquisa_pet'] = 'Pesquisa_pet/index';
 
