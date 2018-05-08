@@ -20,7 +20,7 @@ class Login_Usuario extends CI_Controller {
         if ($usuario == $usuario_db['CPF_CNPJ'] && $senha == $usuario_db['SENHA']) {
 			$this->session->set_userdata("usuario_logado", $usuario_db);
 			$this->session->set_flashdata("success", "Logado com sucesso!");
-			redirect(base_url('index'));
+			redirect(base_url('principal'));
 		} else {
 			$this->session->set_flashdata("danger", "CPF/CNPJ ou senha invalidos!");
 			$this->load->view('login_usuario', $dados);
@@ -31,7 +31,7 @@ class Login_Usuario extends CI_Controller {
 	public function Logout(){
 		$this->session->unset_userdata("usuario_logado");
 		$this->session->sess_destroy();
-		redirect(base_url());
+		redirect(base_url('principal'));
 		
 	}
 

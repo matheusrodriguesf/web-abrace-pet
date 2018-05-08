@@ -39,7 +39,7 @@
     </div>
   </div>
 
-  <a class="navbar-brand" href="<?= base_url('index')?>">Abrace Pets</a>
+  <a class="navbar-brand" href="<?= base_url('principal')?>">Abrace Pets</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
