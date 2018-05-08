@@ -66,7 +66,7 @@ $route['login/usuario/deslogar'] = 'Login_Usuario/logout';
 
 $route['pet/detalhe/(:any)'] = 'Detalhe_Animal/index/$1';
 $route['pet/atualizar/(:any)'] = 'Atualiza_Animal/index/$1';
-$route['pet/animais'] = 'Animais/index';
+$route['gerenciamento_pet'] = 'Animais/index';
 
 ////// Rotas do cadastro do Pet //////
 //Adoção
@@ -79,7 +79,6 @@ $route['pet/adocao/delete/(:any)'] = 'Pet_Adocao/Excluir/$1';
 $route['pet/adocao/atualizar/(:any)'] = 'Pet_Adocao/Atualizar/$1';
 $route['pet/detalhe/(:any)'] = 'Detalhe_Animal/index/$1';
 $route['pet/atualizar/(:any)'] = 'Atualiza_Animal/index/$1';
-$route['pet/animais'] = 'Animais/index';
 //Lar Temporário
 $route['pet/lar-temporario'] = 'Pet_Lar_Temporario/index';
 $route['pet/lar-temporario/add'] = 'Pet_Lar_Temporario/salvar';
@@ -95,7 +94,7 @@ $route['teste'] = 'Usuario_teste/index';
 $route['somos'] = 'Quem_somos/index';
 
 $route['principal'] = 'Tela_inicial/index';
-$route['gerenciamento_pet'] = 'Pet_Adocao/index';
+$route['gerenciamento_pet'] = 'Pet_Adocao/Listar';
 $route['detalhe_pet'] = 'Detalhe_pet/index';
 $route['pesquisa_pet'] = 'Pesquisa_pet/index';
 

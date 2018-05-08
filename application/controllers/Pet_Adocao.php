@@ -18,17 +18,17 @@ class Pet_Adocao extends MY_Controller {
 	 */
 	public function Listar()
 	{
-		// Recupera os contatos através do model
-		$pets = $this->Model_Pet_Adocao->GetAll('nomeanimal');
-		if (isset($pets)) {
-			foreach ($pets as $key => $value) {
-				$dados['pets'][$key] = $value;
-			}
+		$this->load->model('Animais_model');
+        $data = $this->Animais_model->GetAll();
+
+        $this->load->model('Imagem_animal');
+		$data_imagens = $this->Imagem_animal->GetAll();
+		
+		if ($data == null) {
+			$this->load->view('animais_erro');
 		} else {
-			$dados['pets'] = FALSE;
+			$this->load->view('gerenciamento_pet', array('animais' => $data, 'imagens' => $data_imagens));
 		}
-		// Chama a home enviando um array de dados a serem exibidos
-		$this->load->view('listar_pet_adocao', $dados);
 	}
 	/**
 	 * Processa o formulário para salvar os dados

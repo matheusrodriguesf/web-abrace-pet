@@ -6,6 +6,8 @@ class Model_Pet_Adocao extends MY_Model {
         parent:: __construct();
         $this->table = 'ANIMAL';
     }
+
+    
     # Funcao para remover um registro
     function Delete($id) {
         if (is_null($id))

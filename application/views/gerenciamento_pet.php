@@ -47,7 +47,7 @@
         Adicionar Pet
       </button>
       </br>
-      <?php $this->load->view('listar_pet_adocao'); ?>
+      <?php $this->load->view('animais'); ?>
     </div>
   </div>
 
