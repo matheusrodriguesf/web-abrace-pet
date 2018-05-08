@@ -15,7 +15,6 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button class="btn btn-primary" type="submit">Cadastrar Pet</button>
         </div>
       </div>
     </div>
@@ -32,11 +31,10 @@
           </button>
         </div>
         <div class="modal-body">
-          <!--<?php include 'atualizar_pet_adocao.php'; ?>-->
+          <?php include 'atualizar_pet_adocao.php'; ?>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
         </div>
       </div>
     </div>
@@ -52,42 +50,7 @@
         Adicionar Pet
       </button>
       </br></br>
-      <table class="table">
-        <!--Título da tebela-->
-        <thead>
-          <tr>
-            <th>
-              Nome
-            </th>
-            <th>
-              Informação
-            </th>
-            <th>
-              Excluir
-            </th>
-          </tr>
-        </thead>
-        <!--Fim título da tebela-->
-        <!--Corpo da tebela-->
-        <tbody>
-          <!--Linha da tebela-->
-          <td>
-            Nome_animal
-          </td>
-          <td>
-            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editarPet">
-              Editar
-            </button>
-          </td>
-          <td>
-            <button type="button" class="btn btn-warning btn-sm">
-              Excluir
-            </button>
-          </td>
-          <!--Fim linha da tebela-->
-        </tbody>
-        <!--Fim corpo da tebela-->
-      </table>
+      <?php include 'listar_pet_adocao.php'; ?>
     </div>
   </div>
 </div>

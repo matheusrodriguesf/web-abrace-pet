@@ -1,8 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class Atualiza_Animal extends CI_Controller {
-
 	/**
 	 * Index Page for this controller.
 	 *
@@ -23,11 +21,9 @@ class Atualiza_Animal extends CI_Controller {
         if($this->Usuario_model->ChecaUsuarioAnimal($id)) {
 			$this->load->model('Animais_model');
         	$data = $this->Animais_model->GetById($id);
-
 			if ($data != null) {
 				$this->load->model('Imagem_animal');
 				$data_imagem = $this->Imagem_animal->GetById($id);
-
 				$this->load->view('atualizar_pet_adocao', array('animal' => $data));
 			} else {
 				$this->load->view('detalhe_animal_erro');

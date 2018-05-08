@@ -54,8 +54,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 
-$route['inicio'] = 'Home_Logged/index';
-
 $route['gerenciamento/perfil'] = 'Gerenciamento/index';
 $route['gerenciamento/salvar'] = 'Gerenciamento/create';
 

@@ -4,7 +4,7 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 class Pet_Adocao extends MY_Controller {
-
+	
 	/**
 	 * Carrega a home
 	 */
@@ -13,7 +13,6 @@ class Pet_Adocao extends MY_Controller {
 		// Chama a home enviando um array de dados a serem exibidos
 		$this->load->view('cadastro_pet_adocao');
 	}
-
 	/**
 	 * Lista os pets
 	 */
@@ -21,8 +20,6 @@ class Pet_Adocao extends MY_Controller {
 	{
 		// Recupera os contatos através do model
 		$pets = $this->Model_Pet_Adocao->GetAll('nomeanimal');
-
-
 		if (isset($pets)) {
 			foreach ($pets as $key => $value) {
 				$dados['pets'][$key] = $value;
@@ -30,16 +27,13 @@ class Pet_Adocao extends MY_Controller {
 		} else {
 			$dados['pets'] = FALSE;
 		}
-
 		// Chama a home enviando um array de dados a serem exibidos
 		$this->load->view('listar_pet_adocao', $dados);
 	}
-
 	/**
 	 * Processa o formulário para salvar os dados
 	 */
 	public function Salvar(){
-
 		// Executa o processo de validação do formulário
 		$validacao = self::Validar();
 		// Verifica o status da validação do formulário
@@ -51,7 +45,6 @@ class Pet_Adocao extends MY_Controller {
 			if(!isset($dados['IDRESPONSAVEL'])){
 				$dados['IDRESPONSAVEL'] = $this->session->userdata('usuario_logado')['IDRESPONSAVEL'];
 			}
-
 			// Insere os dados no banco recuperando o status dessa operação
 			$status = $this->Model_Pet_Adocao->Insert($dados);
 			// Checa o status da operação gravando a mensagem na seção
@@ -69,7 +62,6 @@ class Pet_Adocao extends MY_Controller {
 		// Carrega a home
 		$this->load->view('cadastro_pet_adocao', $dados);
 	}
-
 	public function do_upload($id_animal) {
 		$config['upload_path']   = './uploads/';
 		$config['allowed_types'] = 'gif|jpg|png';
@@ -77,27 +69,22 @@ class Pet_Adocao extends MY_Controller {
 		$config['max_width']     = 1024;
 		$config['max_height']    = 768;
 		$this->load->library('upload', $config);
-
 		if ( ! $this->upload->do_upload('userfile')) {
       $this->Excluir_Erro($id_animal);
 		   $error = array('error' => $this->upload->display_errors());
 		   $this->load->view('upload_form', $error);
-
 		}
-
 		else {
 		   $data = array('upload_data' => $this->upload->data());
 		   $image_data = array(
 			   'IDANIMAL' => $id_animal,
 			   'IMAGEM_ANIMAL' => $data['upload_data']['file_name'],
 		   );
-
 		   $this->load->model('Imagem_animal');
            $this->Imagem_animal->Insert($image_data);
 		   // $this->load->view('upload_success', $data);
 		}
 	 }
-
 	 public function update_imagem($id_animal) {
 		$config['upload_path']   = './uploads/';
 		$config['allowed_types'] = 'gif|jpg|png';
@@ -105,20 +92,17 @@ class Pet_Adocao extends MY_Controller {
 		$config['max_width']     = 1024;
 		$config['max_height']    = 768;
 		$this->load->library('upload', $config);
-
 		if ( $this->upload->do_upload('userfile')) {
 		   $data = array('upload_data' => $this->upload->data());
 		   $image_data = array(
 			   'IDANIMAL' => $id_animal,
 			   'IMAGEM_ANIMAL' => $data['upload_data']['file_name'],
 		   );
-
 		   $this->load->model('Imagem_animal');
            $this->Imagem_animal->Update($id_animal, $image_data);
 		   // $this->load->view('upload_success', $data);
 		}
 	 }
-
 	/**
 	 * Carrega a view para edição dos dados
 	 */
@@ -133,7 +117,6 @@ class Pet_Adocao extends MY_Controller {
 		// Carrega a view passando os dados do registro
 		$this->load->view('editar',$dados);
 	}
-
 	/**
 	 * Processa o formulário para atualizar os dados
 	 */
@@ -148,7 +131,6 @@ class Pet_Adocao extends MY_Controller {
 			$pets = $this->input->post();
 			// Atualiza os dados no banco recuperando o status dessa operação
 			$status = $this->Model_Pet_Adocao->Update($id, $pets);
-
 			// Checa o status da operação gravando a mensagem na seção
 			if(!$status){
 				$dados['pets'] = $this->Model_Pet_Adocao->GetById($pets['id']);
@@ -165,24 +147,20 @@ class Pet_Adocao extends MY_Controller {
 		// Carrega a view para edição
 		$this->load->view('editar',$dados);
 	}
-
 	/**
 	 * Realiza o processo de exclusão dos dados
 	 */
 	public function Excluir($id){
 		if ($this->Model_Pet_Adocao->ChecaUsuarioAnimal($id)) {
 			// Recupera o ID do registro - através da URL - a ser editado
-
 			// Se não foi passado um ID, então redireciona para a home
 			if(is_null($id))
 				redirect();
 			// Remove o registro do banco de dados recuperando o status dessa operação
 			$status = $this->Model_Pet_Adocao->Delete($id);
-
 			//apagando imagem do registro
 			$this->load->model('Imagem_animal');
 			$this->Imagem_animal->Delete($id);
-
 			// Checa o status da operação gravando a mensagem na seção
 			if($status){
 				$this->session->set_flashdata('success', '<p>Pet excluído com sucesso.</p>');
@@ -193,21 +171,17 @@ class Pet_Adocao extends MY_Controller {
 			redirect(base_url('inicio'));
 		}
 	}
-
   public function Excluir_Erro($id){
 		if ($this->Model_Pet_Adocao->ChecaUsuarioAnimal($id)) {
 			// Recupera o ID do registro - através da URL - a ser editado
-
 			// Se não foi passado um ID, então redireciona para a home
 			if(is_null($id))
 				redirect();
 			// Remove o registro do banco de dados recuperando o status dessa operação
 			$status = $this->Model_Pet_Adocao->Delete($id);
-
 			//apagando imagem do registro
 			$this->load->model('Imagem_animal');
 			$this->Imagem_animal->Delete($id);
-
 			// Checa o status da operação gravando a mensagem na seção
 			if($status){
 				$this->session->set_flashdata('success', '<p>Pet excluído com sucesso.</p>');
@@ -216,7 +190,6 @@ class Pet_Adocao extends MY_Controller {
 			}
 		}
 	}
-
 	/**
 	* Valida os dados do formulário
 	*
