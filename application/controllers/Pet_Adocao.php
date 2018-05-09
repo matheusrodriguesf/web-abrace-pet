@@ -25,9 +25,9 @@ class Pet_Adocao extends MY_Controller {
 		$data_imagens = $this->Imagem_animal->GetAll();
 		
 		if ($data == null) {
-			$this->load->view('animais_erro');
+			$this->load->view('pesquisa_erro');
 		} else {
-			$this->load->view('gerenciamento_pet', array('animais' => $data, 'imagens' => $data_imagens));
+			$this->load->view('pesquisa_pet', array('animais' => $data, 'imagens' => $data_imagens));
 		}
 	}
 
@@ -37,7 +37,7 @@ class Pet_Adocao extends MY_Controller {
         $data = $this->Animais_model->ChecaUsuarioAnimal();
 
 		if ($data == null) {
-			$this->load->view('animais_erro');
+			$this->load->view('gerenciamento_erro');
 		} else {
 			$this->load->view('gerenciamento_pet', array('animais' => $data));
 		}
@@ -67,7 +67,7 @@ class Pet_Adocao extends MY_Controller {
 				$this->session->set_flashdata('success', 'Pet adicionado com sucesso.');
 				$this->do_upload($this->db->insert_id());
 				// Redireciona o usuário para a home
-				redirect(base_url('inicio'));
+				redirect(base_url('principal'));
 			}
 		}else{
 			$this->session->set_flashdata('error', validation_errors('<p>','</p>'));
@@ -185,7 +185,7 @@ class Pet_Adocao extends MY_Controller {
 				$this->session->set_flashdata('error', '<p>Não foi possível excluir o pet.</p>');
 			}
 			// Redirecionao o usuário para a home
-			redirect(base_url('inicio'));
+			redirect(base_url('principal'));
 		}
 	}
   public function Excluir_Erro($id){

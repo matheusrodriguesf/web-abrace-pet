@@ -17,7 +17,7 @@ class Pesquisa_pet extends CI_Controller {
 		$data_imagens = $this->Imagem_animal->GetAll();
 		
 		if ($data == null) {
-			$this->load->view('animais_erro');
+			$this->load->view('pesquisa_erro');
 		} else {
 			$this->load->view('pesquisa_pet', array('animais' => $data, 'imagens' => $data_imagens));
 		}

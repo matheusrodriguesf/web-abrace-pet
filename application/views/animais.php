@@ -20,17 +20,17 @@
               <?php foreach ($animais as $indice => $animal) : ?>
               <tr>
                 <td>
-                  <a href="detalhe/<?=$animal['IDANIMAL']?>"><?=$animal['NOMEANIMAL']?></a>
+                  <a href="detalhe_pet/<?=$animal['IDANIMAL']?>"><?=$animal['NOMEANIMAL']?></a>
                 </td>
                 <td>
-                  <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editarPet">
-                    Editar
-                  </button>
+                  <form action="<?= base_url('pet/atualizar/' . $animal['IDANIMAL'])?>" method="post">
+                      <button class="btn btn-info">Editar Animal</button>
+                  </form>
                 </td>
                 <td>
-                  <button type="button" class="btn btn-warning btn-sm">
-                    Excluir
-                  </button>
+                  <form action="<?= base_url('pet/adocao/delete/' . $animal['IDANIMAL'])?>" method="post">
+                    <button class="btn btn-success">Animal já adotado</button>
+                  </form>
                 </td>
               </tr>
 

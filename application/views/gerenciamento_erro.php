@@ -29,7 +29,7 @@
         Adicionar Pet
       </button>
       </br>
-      <?php $this->load->view('animais'); ?>
+      <?php $this->load->view('animais_erro'); ?>
     </div>
   </div>
 
