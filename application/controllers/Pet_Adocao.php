@@ -30,6 +30,19 @@ class Pet_Adocao extends MY_Controller {
 			$this->load->view('gerenciamento_pet', array('animais' => $data, 'imagens' => $data_imagens));
 		}
 	}
+
+	public function Responsavel()
+	{
+		$this->load->model('Animais_model');
+        $data = $this->Animais_model->ChecaUsuarioAnimal();
+
+		if ($data == null) {
+			$this->load->view('animais_erro');
+		} else {
+			$this->load->view('gerenciamento_pet', array('animais' => $data));
+		}
+	}
+
 	/**
 	 * Processa o formulário para salvar os dados
 	 */
@@ -106,18 +119,22 @@ class Pet_Adocao extends MY_Controller {
 	/**
 	 * Carrega a view para edição dos dados
 	 */
-	public function Editar(){
-		// Recupera o ID do registro - através da URL - a ser editado
-		$id = $this->uri->segment(2);
-		// Se não foi passado um ID, então redireciona para a home
-		if(is_null($id))
-			redirect();
-		// Recupera os dados do registro a ser editado
-		$dados['pet'] = $this->Model_Pet_Adocao->GetById($id);
-		// Carrega a view passando os dados do registro
-		$this->load->view('editar',$dados);
+	public function Editar($id){
+		if($this->Usuario_model->ChecaUsuarioAnimal($id)) {
+			$this->load->model('Animais_model');
+        	$data = $this->Animais_model->GetById($id);
+			if ($data != null) {
+				$this->load->model('Imagem_animal');
+				$data_imagem = $this->Imagem_animal->GetById($id);
+				$this->load->view('atualizar_pet_adocao', array('animal' => $data));
+			} else {
+				$this->load->view('detalhe_animal_erro');
+			}
+		} else {
+			redirect(base_url('gerenciamento_pet'));
+		}
 	}
-	/**
+/**
 	 * Processa o formulário para atualizar os dados
 	 */
 	public function Atualizar($id){
@@ -139,7 +156,7 @@ class Pet_Adocao extends MY_Controller {
 				$this->session->set_flashdata('success', 'Pet atualizado com sucesso.');
 				$this->update_imagem($id);
 				// Redireciona o usuário para a home
-				redirect(base_url('inicio'));
+				redirect(base_url('gerenciamento_pet'));
 			}
 		}else{
 			$this->session->set_flashdata('error', validation_errors());

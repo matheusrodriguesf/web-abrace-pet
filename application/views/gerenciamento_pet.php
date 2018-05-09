@@ -20,6 +20,7 @@
     </div>
   </div>
 
+  
   <!-- Modal Editar -->
   <div class="modal fade" id="editarPet" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
@@ -39,7 +40,8 @@
       </div>
     </div>
   </div>
-
+  
+  
   <div class="row">
     <div class="col-md-12">
       <h3>Pets</h3>

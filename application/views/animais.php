@@ -1,38 +1,42 @@
+    <table class="table">
+            <!--Título da tebela-->
+            <thead>
+              <tr>
+                <th>
+                  Nome
+                </th>
+                <th>
+                  Informação
+                </th>
+                <th>
+                  Excluir
+                </th>
+              </tr>
+            </thead>
+            <!--Fim título da tebela-->
+            <!--Corpo da tebela-->
+            <tbody>
+              <!--Linha da tebela-->
+              <?php foreach ($animais as $indice => $animal) : ?>
+              <tr>
+                <td>
+                  <a href="detalhe/<?=$animal['IDANIMAL']?>"><?=$animal['NOMEANIMAL']?></a>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editarPet">
+                    Editar
+                  </button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-warning btn-sm">
+                    Excluir
+                  </button>
+                </td>
+              </tr>
 
-    <div class="container">
-
-      <div class="row">
-
-        <div class="col-lg-2"></div>
-        <!-- /.col-lg-3 -->
-
-        <div class="col-lg-8">
-
-        <br>
-          <div class="row">
-
-          <?php foreach ($animais as $indice => $animal) : 
-            //if()
-            ?>
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
+              <?php endforeach ?>
+              <!--Fim linha da tebela-->
               
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="detalhe/<?=$animal['IDANIMAL']?>"><?=$animal['NOMEANIMAL']?></a>
-                  </h4>
-                  <p class="card-text"><?=$animal['DESCRICAO_ANIMAL']?></p>
-                </div>
-              </div>
-            </div>
-            <?php endforeach ?>
-          </div>
-          <!-- /.row -->
-
-        </div>
-        <!-- /.col-lg-9 -->
-
-      </div>
-      <!-- /.row -->
-
-    </div>
+            </tbody>
+            <!--Fim corpo da tebela-->
+          </table>

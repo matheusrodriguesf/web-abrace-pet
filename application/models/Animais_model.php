@@ -11,6 +11,7 @@ class Animais_model extends MY_Model {
         parent:: __construct();
         $this->table = 'ANIMAL';
     }
+
     # Função para obter os dados do banco,
     # apartir de um ID;
     function GetById($id) {
@@ -24,8 +25,9 @@ class Animais_model extends MY_Model {
             return null;
         }
     }
+
     # Funcao para obter todos os registro de uma data tabela
-    function GetAll($sort = 'idanimal', $order = 'asc') {
+    function GetAll($sort = 'IDRESPONSAVEL', $order = 'asc') {
         $this->db->order_by($sort, $order);
         $query = $this->db->get($this->table);
         if ($query->num_rows() > 0) {
@@ -34,6 +36,7 @@ class Animais_model extends MY_Model {
             return null;
         }
     }
+
     #Funcao para atualizar um registro;
     function Update($id, $data) {
         if (is_null($id) || !isset($data))
@@ -41,24 +44,25 @@ class Animais_model extends MY_Model {
         $this->db->where('idanimal', $id);
         return $this->db->update($this->table, $data);
     }
-     # Funcao para remover um registro
-     function Delete($id) {
+
+    # Funcao para remover um registro
+    function Delete($id) {
         if (is_null($id))
             return false;
         $this->db->where('idanimal', $id);
         return $this->db->delete($this->table);
     }
-    function ChecaUsuarioAnimal($id) {
+
+    function ChecaUsuarioAnimal($sort = 'IDANIMAL', $id = 'IDRESPONSAVEL', $order = 'asc') {
         $usuario = $this->session->userdata("usuario_logado");
         if(is_null($id))
             return false;
-        $this->db->where('idanimal', $id);
-        $this->db->where("IDRESPONSAVEL", $usuario['IDRESPONSAVEL']);
+        $this->db->order_by($sort, $id, $order);
         $query = $this->db->get($this->table);
         if ($query->num_rows() > 0) {
-            return true;
+            return $query->result_array();
         } else {
-            return false;
+            return null;
         }
     }
 }

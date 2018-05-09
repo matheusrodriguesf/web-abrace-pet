@@ -1,23 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <style>
-    
-      #map {
-       height:300px;
-	   width:500px;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 50%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-  </head>
-  <body>
     <div id="map"></div>
     <input type="hidden" class="form-control input-md" id="LONGITUDE" name="LONGITUDE"/>
     <input type="hidden" class="form-control input-md" id="LATITUDE" name="LATITUDE"/>
@@ -65,5 +45,3 @@
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAR0J4_MHKvJyzf2Q5lJaHkAoHDLopt0Gk&callback=initMap">
     </script>
-  </body>
-</html>

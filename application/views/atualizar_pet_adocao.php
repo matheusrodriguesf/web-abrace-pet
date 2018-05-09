@@ -1,9 +1,6 @@
 <form class="form-horizontal" method="post" action="<?=base_url('pet/adocao/atualizar/' . $animal['IDANIMAL'])?>" enctype="multipart/form-data">
     <fieldset>
 
-        <!-- Form Name -->
-        <legend>Cadastro do Pet</legend>
-
         <!-- Text input-->
         <div class="form-group">
             <label class=" control-label" for="NOMEANIMAL">Nome</label>  
@@ -27,7 +24,7 @@
         <!-- Select Basic -->
         <div class="form-group">
             <label class=" control-label" for="SEXO">Sexo</label>
-            <div class="col-md-1">
+            <div class="">
                 <select id="SEXO" name="SEXO" class="form-control">
                     <option value="m" <?= ($animal['SEXO'] == 'm') ? 'selected="selected"' : ''?>>Macho</option>
                     <option value="f" <?= ($animal['SEXO'] == 'f') ? 'selected="selected"' : ''?>>Femea</option>

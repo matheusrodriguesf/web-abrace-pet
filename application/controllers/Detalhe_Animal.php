@@ -27,7 +27,7 @@ class Detalhe_Animal extends CI_Controller {
             $this->load->model('Imagem_animal');
             $data_imagem = $this->Imagem_animal->GetById($id);
 
-            $this->load->view('detalhe_animal', array('animal' => $data, 'imagem_animal' => $data_imagem['IMAGEM_ANIMAL']));
+            $this->load->view('detalhe_pet', array('animal' => $data, 'imagem_animal' => $data_imagem['IMAGEM_ANIMAL']));
         } else {
             $this->load->view('detalhe_animal_erro');
         }
