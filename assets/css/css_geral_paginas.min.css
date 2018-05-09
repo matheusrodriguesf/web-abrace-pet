@@ -1,0 +1,33 @@
+/*CSS para todas as abas do site*/ 
+    html {
+        position: relative;
+        min-height: 100%;
+        padding-bottom:90px;
+      }
+
+      body {
+        margin-bottom: 90px;
+      }
+  
+/*nav_bar*/
+    .navbar{
+        background-color: #d3ab98;
+    }
+/*fim nav_bar*/
+
+/*body*/
+    body{
+        background: linear-gradient(to bottom, #ffffff, #ccc1b7);
+        background-repeat: no-repeat;
+    }
+/*fim body*/
+
+/*footer*/
+    .container-fluid{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 55px;
+        background:#353941;
+    }
+/*fim footer*/
