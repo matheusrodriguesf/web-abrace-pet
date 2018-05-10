@@ -20,6 +20,18 @@ class MY_Model extends CI_Model {
         }
     }
 
+    function GetUserContato($idresponsavel){
+        if(is_null($idresponsavel))
+            return false;
+        $this->db->where('IDRESPONSAVEL', $idresponsavel);
+        $query = $this->db->get($this->table);
+        if ($query->num_rows() > 0) {
+            return $query->row_array();
+        } else {
+            return null;
+        }
+    }
+
     function GetAnimal($nomeanimal){
         if(is_null($nomeanimal))
             return false;

@@ -24,10 +24,34 @@
           <li >Vacinado: <?=($animal ["IND_VACINA"]==1)?'Sim': 'Não'?></li> 
           <li >Situação do animal: <?=($animal ["STATUS_ANIMAL"]==1)?'Lar temporário': 'Adoção'?></li> 
           <li >Porte: <?=$animal["PORTE"]?></li> 
-          </ul>
-        <button type="button" class="btn btn-success">
-			    Adotar
-		    </button>
+        </ul>
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal2">
+          Adotar
+        </button>
+        <!-- Modal -->
+        <!--Login e cadastro-->
+        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+
+                <h5 class="modal-title" id="exampleModalLabel2">Informações do Responsável</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+              </div>
+              <div class="modal-body">
+                <div class="tab-content" id="myTabContent">
+                  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <?php $this->load->view('detalhes_responsavel'); ?>               
+                  </div>
+                </div>  
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--fim cadastro/login-->
       </div>
     </div>
     <h3 class="my-4">Descrição</h3>
