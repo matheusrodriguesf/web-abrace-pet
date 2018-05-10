@@ -16,8 +16,13 @@
             <!--Fim título da tebela-->
             <!--Corpo da tebela-->
             <tbody>
+                
               <!--Linha da tebela-->
+
               <?php foreach ($animais as $indice => $animal) : ?>
+                <?php 
+                $this->load->model('Usuario_model');
+                if($this->Usuario_model->ChecaUsuarioAnimal($animal['IDANIMAL']) && $this->session->userdata("usuario_logado")) : ?>
               <tr>
                 <td>
                   <a href="detalhe_pet/<?=$animal['IDANIMAL']?>"><?=$animal['NOMEANIMAL']?></a>
@@ -33,7 +38,7 @@
                   </form>
                 </td>
               </tr>
-
+              <?php endif ?>
               <?php endforeach ?>
               <!--Fim linha da tebela-->
               

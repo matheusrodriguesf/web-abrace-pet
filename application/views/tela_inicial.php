@@ -1,5 +1,5 @@
 <?php $this->load->view('shared/cabecalho'); ?>
-		<!--Página principal-->
+		    <!--Página principal-->
     <main role="main">
       <!--Carousel-->
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -13,36 +13,41 @@
         <!--Primeiro Slide -->
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="first-slide d-block w-100" src="https://i.kinja-img.com/gawker-media/image/upload/s--nFxGt3L5--/c_scale,f_auto,fl_progressive,q_80,w_800/ebaeet1udzknntbtepj6.jpg" alt="First slide">
+            <img class="first-slide d-block w-100" src="http://oftalmologiapet.com.br/slide/demo/images/sld_old%20(10).jpg" alt="First slide" height="600" width="1400">
             
               <div class="carousel-caption text-left">
-                <h1>Example headline.</h1>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                <p>
+                    Um cachorro não precisa de carrões, de casas grandes ou roupas de marca, um graveto está ótimo para ele. 
+                    Um cachorro não se importa se você é rico ou pobre, inteligente ou idiota, esperto ou burro. 
+                    Dê seu coração para ele e ele lhe dará o dele. 
+                    🐶
+                </p>
               </div>
             
           </div>
           <!--Fim primeiro Slide -->
           <!--Segundo Slide -->
           <div class="carousel-item">
-            <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
+            <img class="second-slide d-block w-100"  src="https://cdn.allwallpaper.in/wallpapers/1920x1080/15261/pet-love-1920x1080-wallpaper.jpg" alt="Second slide" height="600" width="1400">
             <div class="container">
               <div class="carousel-caption">
-                <h1>Another example headline.</h1>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                <p>
+                  A compaixão pelos animais está intimamente ligada à bondade de carácter, e pode ser seguramente afirmado que quem é cruel com os animais não pode ser um bom homem. 
+                  </br>💗
+                </p>
               </div>
             </div>
           </div>
           <!--Fim segundo Slide -->
           <!--Terceiro Slide -->
           <div class="carousel-item">
-            <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
+            <img class="third-slide w-100" src="http://www.gtoninelli.com/wp-content/uploads/2017/11/google-hidden-content.jpg" alt="Third slide" height="600" width="1400">
             <div class="container">
               <div class="carousel-caption text-right">
-                <h1>One more for good measure.</h1>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                <p>
+                    O gato é uma lição diária de afeto verdadeiro e fiel. Suas manifestações são íntimas e profundas. Exigem recolhimento, entrega e atenção.
+                    </br>🐱
+                </p>
               </div>
             </div>
           </div>
@@ -58,41 +63,42 @@
         </a>
       </div>
       <!--Fim Carousel-->
-
+      <br>
       <!-- Parte abaixo do carousel -->
       <div class="container marketing">
         <!-- Três colunas abaixo do carousel -->
         <div class="row">
           <!-- coluna 01 -->
           <div class="col-lg-4">
-            <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            <img class="rounded-circle" src="http://www.erblicken.com/wp-content/uploads/2017/10/Funny_Dobby_4-1000x1000.jpg" width="140" height="140">
+            <p>
+                Os cães são o nosso elo com o Paraíso. Eles não conhecem a maldade, a inveja ou o descontentamento. Sentar-se com um cão ao pé de uma colina numa linda tarde, é voltar ao Éden onde ficar sem fazer nada não era tédio, era paz.
+            </p>
           </div>
           <!-- fim coluna 01-->
           <!-- coluna 02 -->
           <div class="col-lg-4">
-            <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-            <h2>Heading</h2>
-            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            <img class="rounded-circle" src="http://lupusalimentos.com.br/system/wp-content/uploads/2014/10/calculo-renal-dog-cat.jpg" alt="Generic placeholder image" width="140" height="140">
+            <p>
+                Quando nos dedicamos a uma causa não é esperando reconhecimento, é porque fazer algo alegra nossa alma e virar o rosto nem é uma opção. 
+                </br>Amigo a gente não procura, o coração da gente é quem encontra.
+            </p>
           </div>
           <!-- fim coluna 02-->
           <!-- coluna 03 -->
           <div class="col-lg-4">
-            <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            <img class="rounded-circle" src="https://usercontent1.hubstatic.com/8880514_f496.jpg" alt="Generic placeholder image" width="140" height="140">
+            <p>
+                Um gato tem honestidade emocional absoluta: os seres humanos, por uma razão ou 
+                outra, pode esconder os seus sentimentos, mas o gato não.
+            </p>
           </div><!-- /.col-lg-4 -->
           <!-- fim coluna 03-->
         </div> <!-- /.row/ -->
         <!-- Fim das três colunas abaixo do carousel -->
       </div>
       <!-- Três colunas abaixo do carousel -->
-    </div>
-    <!--Fim página principal-->
+    </div><!--Fim página principal-->
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
