@@ -28,8 +28,6 @@ class Detalhe_Animal extends CI_Controller {
 
        	$this->load->model('Model_Contato_Usuario');
        	$userdata += $this->Model_Contato_Usuario->GetUserContato($data['IDRESPONSAVEL']);
-        
-        var_dump($userdata);
 
         if ($data != NULL && $userdata != NULL) {
             $this->load->model('Imagem_animal');
