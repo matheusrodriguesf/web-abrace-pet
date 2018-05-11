@@ -23,11 +23,23 @@ class Detalhe_Animal extends CI_Controller {
         $this->load->model('Animais_model');
         $data = $this->Animais_model->GetById($id);
 
-        if ($data != null) {
+        $this->load->model('Usuario_model');
+       	$userdata = $this->Usuario_model->GetUserContato($data['IDRESPONSAVEL']);
+
+       	$this->load->model('Model_Contato_Usuario');
+       	$userdata += $this->Model_Contato_Usuario->GetUserContato($data['IDRESPONSAVEL']);
+        
+        var_dump($userdata);
+
+        if ($data != NULL && $userdata != NULL) {
             $this->load->model('Imagem_animal');
             $data_imagem = $this->Imagem_animal->GetById($id);
 
-            $this->load->view('detalhe_pet', array('animal' => $data, 'imagem_animal' => $data_imagem['IMAGEM_ANIMAL']));
+            $this->load->view('detalhe_pet', array(
+            	'animal' => $data,
+            	'imagem_animal' => $data_imagem['IMAGEM_ANIMAL'],
+            	'responsavel' => $userdata
+            ));
         } else {
             $this->load->view('detalhe_animal_erro');
         }

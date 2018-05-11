@@ -44,7 +44,11 @@
               <div class="modal-body">
                 <div class="tab-content" id="myTabContent">
                   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <?php $this->load->view('detalhes_responsavel'); ?>               
+                    <p>Nome: <?php echo $responsavel['NOME'] ?> </p>
+
+                    <p>Telefone: <?php echo $responsavel['FONE_CELULAR'] ?> </p>
+
+                    <p>Email: <?php echo $responsavel['EMAIL']; ?> </p>
                   </div>
                 </div>  
               </div>

@@ -16,12 +16,9 @@ class Login_Usuario extends CI_Controller {
         $senha = sha1($dados['SENHA']);
 
         $usuario_db = $this->Usuario_model->GetUser($dados['CPF_CNPJ']);
-        $contato_db = $this->Model_Contato_Usuario->GetUserContato($usuario_db['IDRESPONSAVEL']);
-
-        $usuariodata = $usuario_db + $contato_db;
         
-        if ($usuario == $usuariodata['CPF_CNPJ'] && $senha == $usuariodata['SENHA']) {
-			$this->session->set_userdata("usuario_logado", $usuariodata);
+        if ($usuario == $usuario_db['CPF_CNPJ'] && $senha == $usuario_db['SENHA']) {
+			$this->session->set_userdata("usuario_logado", $usuario_db);
 			$this->session->set_flashdata("success", "Logado com sucesso!");
 			redirect(base_url('principal'));
 		} else {
