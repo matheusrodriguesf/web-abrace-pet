@@ -25,7 +25,7 @@
           <li >Situação do animal: <?=($animal ["STATUS_ANIMAL"]==1)?'Lar temporário': 'Adoção'?></li> 
           <li >Porte: <?=$animal["PORTE"]?></li> 
         </ul>
-        <button type="button" class="btn btn-outline-dark btn-lg" data-toggle="modal" data-target="#exampleModal2">
+        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#exampleModal2">
           Adotar
         </button>
         <!-- Modal -->
