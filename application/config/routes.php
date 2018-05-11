@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   |		my-controller/my-method	-> my_controller/my_method
  */
 // $route[sua/rota] = "Controller/funcao";
-$route['default_controller'] = 'welcome';
+$route['default_controller'] = 'Tela_inicial/index';
 $route['404_override'] = '';
 
 $route['gerenciamento/perfil'] = 'Gerenciamento/index';
