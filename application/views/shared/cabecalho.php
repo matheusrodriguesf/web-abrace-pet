@@ -7,6 +7,20 @@
         <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
         <link href="<?= base_url('assets/css/css_geral_paginas.min.css') ?>" rel="stylesheet">
 
+        <!-- jQuery -->
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        
+        <!-- Funções para validação de CPF e CNPJ -->
+        <script src="<?= base_url('assets/js/valida_cpf_cnpj.js') ?>"></script>
+
+        <!-- Valida data -->
+        <script src="<?= base_url('assets/js/validar_data.js') ?>"></script>
+        
+        <!-- Formatando o CPF ou CNPJ || E valida o campo data-->
+        <script src="<?= base_url('assets/js/exemplo_3.js') ?>"></script>
+
+        
+
         <style>
     
           #map {

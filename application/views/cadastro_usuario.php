@@ -12,7 +12,7 @@
       <div class="form-group">
           <label class=" control-label" for="CPF_CNPJ">CPF ou CNPJ</label>  
           <div class="">
-              <input id="CPF_CNPJ" name="CPF_CNPJ" type="text" placeholder="CPF ou CNPJ" class="form-control input-md">
+              <input id="CPF_CNPJ" name="CPF_CNPJ" type="text" placeholder="CPF ou CNPJ" class="form-control input-md valida_cpf_cnpj">
           </div>
       </div>
 
@@ -70,7 +70,7 @@
       <div class="form-group">
           <label class=" control-label" for="DATA_NASCIMENTO">Data de Nascimento</label>  
           <div class="">
-              <input id="DATA_NASCIMENTO" name="DATA_NASCIMENTO" type="text" placeholder="Data de Nascimento" class="form-control input-md">
+              <input id="DATA_NASCIMENTO" name="DATA_NASCIMENTO" type="text" placeholder="Data de Nascimento" class="form-control input-md valida_data">
           </div>
       </div>
 
